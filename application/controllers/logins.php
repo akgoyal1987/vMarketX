@@ -1,0 +1,92 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Logins extends CI_Controller {
+
+	public function index(){
+		if($this->checkSession()){
+			$this->home();
+		}else{
+			$this->login();
+		}
+	}
+	
+	public function home(){
+		$this->load->view('home');
+	}
+	
+	public function login(){
+		$this->load->view('index');
+	}
+	
+	public function signin(){
+            
+		$this->load->library('form_validation');
+             
+		
+		$this->form_validation->set_rules('email', 'Email', 'required|callback_validate_credentials');
+		$this->form_validation->set_rules('password', 'Password', 'required|md5');
+		
+		if ($this->form_validation->run()){
+			$data=array(
+				'email'=>$this->input->post('email'),
+				'is_loggedin'=>1		
+			);
+			$this->session->set_userdata($data);
+			redirect('logins/index');
+		}else{
+			$this->load->view('index');
+		}
+	}
+	
+	public function validate_credentials(){
+		$this->load->model('model_users');
+		
+		if ($this->model_users->can_login()){
+			return true;
+		}else{
+			$this->form_validation->set_message('validate_credentials', 'Incorrect username/password');
+			return false;
+		}
+	}
+	
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('site/login');
+	}
+	
+	public function registration(){
+		$this->load->library('javascript');
+		$this->load->view('registration');
+	
+	} 
+	public function signup_validation(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('date', 'Walk In Date', 'required');
+		$this->form_validation->set_rules('name', 'Name', 'required|alpha');
+		$this->form_validation->set_rules('mobile', 'Mobile', 'required|trim|numeric|exact_length[10]');
+		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[reg_user.email]');
+		if ($this->form_validation->run() == FALSE){
+			$this->load->view('registration');
+		}	
+		else{
+			$this->load->model('model_users');
+			$this->model_users->insert_user();
+			redirect('site/thanks');              
+        }
+	}
+	
+	function checkSession(){
+		if($this->session->userdata('is_loggedin')==1){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+}
+
+
+?>
+
+
+
