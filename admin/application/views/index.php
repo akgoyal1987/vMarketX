@@ -9,8 +9,8 @@
 
     <title>Login</title>
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>css/style-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -23,10 +23,11 @@
 
 <div class="container">
 
-    <form class="form-signin" method="post" action="logins/signin">
+<form class="form-signin" accept-charset="utf-8" method="post" action="<?php echo base_url();?>logins/signin">
+        
         <div class="form-signin-heading text-center">
             <h1 class="sign-title">Sign In</h1>
-            <img src="images/login-logo.png" alt=""/>
+            <img src="<?php echo base_url();?>images/login-logo.png" alt=""/>
         </div>
         <div class="login-wrap">
             <input type="email" class="form-control" placeholder="Email" autofocus name="email" required>
@@ -73,8 +74,7 @@
             </div>
         </div>
         <!-- modal -->
-
-    </form>
+</form>
 
 </div>
 
@@ -83,9 +83,9 @@
 <!-- Placed js at the end of the document so the pages load faster -->
 
 <!-- Placed js at the end of the document so the pages load faster -->
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/modernizr.min.js"></script>
+<script src="<?php echo base_url();?>js/jquery-1.10.2.min.js"></script>
+<script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>js/modernizr.min.js"></script>
 
 </body>
 </html>

@@ -19,23 +19,8 @@ class Logins extends CI_Controller {
 	}
 	
 	public function signin(){
-            
-		$this->load->library('form_validation');
-             
-		
-		$this->form_validation->set_rules('email', 'Email', 'required|callback_validate_credentials');
-		$this->form_validation->set_rules('password', 'Password', 'required|md5');
-		
-		if ($this->form_validation->run()){
-			$data=array(
-				'email'=>$this->input->post('email'),
-				'is_loggedin'=>1		
-			);
-			$this->session->set_userdata($data);
-			redirect('logins/index');
-		}else{
-			$this->load->view('index');
-		}
+		$this->session->set_userdata(array('is_loggedin'=>1));
+        redirect('logins/home');
 	}
 	
 	public function validate_credentials(){
@@ -51,14 +36,13 @@ class Logins extends CI_Controller {
 	
 	public function logout(){
 		$this->session->sess_destroy();
-		redirect('site/login');
+		redirect('logins/index');
 	}
 	
 	public function registration(){
-		$this->load->library('javascript');
 		$this->load->view('registration');
-	
 	} 
+	
 	public function signup_validation(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('date', 'Walk In Date', 'required');

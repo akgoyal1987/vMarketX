@@ -10,9 +10,9 @@ class Views extends CI_Controller {
 		}
 	}
 
-	public function index(){
+	public function home_alt(){
 		if($this->checkSession()){
-			$this->load->view('partials/home');			
+			$this->load->view('partials/home_alt');			
 		}else{
 			echo "You Are Not Logged In, Please Login First";
 		}

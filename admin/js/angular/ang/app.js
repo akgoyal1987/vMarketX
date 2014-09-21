@@ -14,11 +14,15 @@ config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('index', {
       url: "",
-      templateUrl: "views/home"
+      templateUrl: "../views/home"
   })
   .state('home', {
       url: "/home",
-      templateUrl: "views/home"
+      templateUrl: "../views/home"
+  })
+  .state('home_alt', {
+      url: "/home_alt",
+      templateUrl: "../views/home_alt"
   })
   .state('unload', {
       url: "/unload",

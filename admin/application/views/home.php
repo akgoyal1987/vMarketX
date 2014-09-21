@@ -11,18 +11,18 @@
   <title>AdminX</title>
 
   <!--icheck-->
-  <link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
-  <link href="js/iCheck/skins/square/square.css" rel="stylesheet">
-  <link href="js/iCheck/skins/square/red.css" rel="stylesheet">
-  <link href="js/iCheck/skins/square/blue.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>js/iCheck/skins/square/square.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>js/iCheck/skins/square/red.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>js/iCheck/skins/square/blue.css" rel="stylesheet">
 
   <!--dashboard calendar-->
-  <link href="css/clndr.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>css/clndr.css" rel="stylesheet">
 
 
   <!--common-->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>css/style-responsive.css" rel="stylesheet">
 
 
 
@@ -42,11 +42,11 @@
 
         <!--logo and iconic logo start-->
         <div class="logo">
-            <a href="index.html"><img src="images/logo.png" alt=""></a>
+            <a href="index.html"><img src="<?php echo base_url();?>images/logo.png" alt=""></a>
         </div>
 
         <div class="logo-icon text-center">
-            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+            <a href="index.html"><img src="<?php echo base_url();?>images/logo_icon.png" alt=""></a>
         </div>
         <!--logo and iconic logo end-->
 
@@ -55,7 +55,7 @@
             <!-- visible to small devices only -->
             <div class="visible-xs hidden-sm hidden-md hidden-lg">
                 <div class="media logged-user">
-                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <img alt="" src="<?php echo base_url();?>images/photos/user-avatar.png" class="media-object">
                     <div class="media-body">
                         <h4><a href="#">John Doe</a></h4>
                         <span>"Hello There..."</span>
@@ -74,7 +74,7 @@
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <li class="menu-list nav-active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="#/index_alt"> Dashboard 1</a></li>
+                        <li><a href="#/home_alt"> Dashboard 1</a></li>
                         <li class="active"><a href="#/home"> Dashboard 2</a></li>
                     </ul>
                 </li>
@@ -377,7 +377,7 @@
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
                             <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>
-                            <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                            <li><a href="<?php echo base_url();?>logins/logout"><i class="fa fa-sign-out"></i> Log Out</a></li>
                         </ul>
                     </li>
 
@@ -404,48 +404,48 @@
 </section>
 
 <!-- Placed js at the end of the document so the pages load faster -->
-<script src="js/angular/jquery-1.8.3.min.js"></script>
-<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-<script src="js/jquery-migrate-1.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/modernizr.min.js"></script>
-<script src="js/jquery.nicescroll.js"></script>
+<script src="<?php echo base_url();?>js/angular/jquery-1.8.3.min.js"></script>
+<script src="<?php echo base_url();?>js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="<?php echo base_url();?>js/jquery-migrate-1.2.1.min.js"></script>
+<script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>js/modernizr.min.js"></script>
+<script src="<?php echo base_url();?>js/jquery.nicescroll.js"></script>
 <!--easy pie chart-->
-<script src="js/easypiechart/jquery.easypiechart.js"></script>
-<script src="js/easypiechart/easypiechart-init.js"></script>
+<script src="<?php echo base_url();?>js/easypiechart/jquery.easypiechart.js"></script>
+<script src="<?php echo base_url();?>js/easypiechart/easypiechart-init.js"></script>
 
 <!--Sparkline Chart-->
-<script src="js/sparkline/jquery.sparkline.js"></script>
-<script src="js/sparkline/sparkline-init.js"></script>
+<script src="<?php echo base_url();?>js/sparkline/jquery.sparkline.js"></script>
+<script src="<?php echo base_url();?>js/sparkline/sparkline-init.js"></script>
 
 <!--icheck -->
-<script src="js/iCheck/jquery.icheck.js"></script>
-<script src="js/icheck-init.js"></script>
+<script src="<?php echo base_url();?>js/iCheck/jquery.icheck.js"></script>
+<script src="<?php echo base_url();?>js/icheck-init.js"></script>
 
 <!-- jQuery Flot Chart-->
-<script src="js/flot-chart/jquery.flot.js"></script>
-<script src="js/flot-chart/jquery.flot.tooltip.js"></script>
-<script src="js/flot-chart/jquery.flot.resize.js"></script>
-<script src="js/flot-chart/jquery.flot.pie.resize.js"></script>
-<script src="js/flot-chart/jquery.flot.selection.js"></script>
-<script src="js/flot-chart/jquery.flot.stack.js"></script>
-<script src="js/flot-chart/jquery.flot.time.js"></script>
+<script src="<?php echo base_url();?>js/flot-chart/jquery.flot.js"></script>
+<script src="<?php echo base_url();?>js/flot-chart/jquery.flot.tooltip.js"></script>
+<script src="<?php echo base_url();?>js/flot-chart/jquery.flot.resize.js"></script>
+<script src="<?php echo base_url();?>js/flot-chart/jquery.flot.pie.resize.js"></script>
+<script src="<?php echo base_url();?>js/flot-chart/jquery.flot.selection.js"></script>
+<script src="<?php echo base_url();?>js/flot-chart/jquery.flot.stack.js"></script>
+<script src="<?php echo base_url();?>js/flot-chart/jquery.flot.time.js"></script>
 
 <!--common scripts for all pages-->
-<script src="js/scripts.js"></script>
+<script src="<?php echo base_url();?>js/scripts.js"></script>
 
-<script src="js/angular/lib/angular/angular.js"></script>
-<script src="js/angular/ang/angular-ui-router.js"></script>
-<script src="js/angular/ang/ui-utils.min.js"></script>
-<script src="js/angular/ang/app.js"></script>
-<script src="js/angular/ang//directives.js"></script>
-<script src="js/angular/ang/services.js"></script>
-<script src="js/angular/ang/controllers.js"></script>
-<script src="js/angular/ang/filters.js"></script>  
+<script src="<?php echo base_url();?>js/angular/lib/angular/angular.js"></script>
+<script src="<?php echo base_url();?>js/angular/ang/angular-ui-router.js"></script>
+<script src="<?php echo base_url();?>js/angular/ang/ui-utils.min.js"></script>
+<script src="<?php echo base_url();?>js/angular/ang/app.js"></script>
+<script src="<?php echo base_url();?>js/angular/ang//directives.js"></script>
+<script src="<?php echo base_url();?>js/angular/ang/services.js"></script>
+<script src="<?php echo base_url();?>js/angular/ang/controllers.js"></script>
+<script src="<?php echo base_url();?>js/angular/ang/filters.js"></script>  
 
 
 
-<script src="js/main-chart.js"></script>
+<script src="<?php echo base_url();?>js/main-chart.js"></script>
 
 
 
