@@ -23,7 +23,7 @@
 
 <div class="container">
 
-    <form class="form-signin" method="post" action="http://localhost/VmarketX_admin/logins/signin">
+    <form class="form-signin" method="post" action="logins/signin">
         <div class="form-signin-heading text-center">
             <h1 class="sign-title">Sign In</h1>
             <img src="images/login-logo.png" alt=""/>
