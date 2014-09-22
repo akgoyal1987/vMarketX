@@ -39,7 +39,7 @@
 
             <div class="registration">
                 Not a member yet?
-                <a class="" href="registration.html">
+                <a class="" href="<?php echo base_url();?>logins/registration">
                     Signup
                 </a>
             </div>

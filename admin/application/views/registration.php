@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ThemeBucket">
-    <link rel="shortcut icon" href="#" type="image/png">
+    <link rel="shortcut icon" href="#" type="<?php echo base_url();?>image/png">
 
     <title>Registration</title>
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>css/style-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,7 +26,7 @@
     <form class="form-signin" action="index.html">
         <div class="form-signin-heading text-center">
             <h1 class="sign-title">Registration</h1>
-            <img src="images/login-logo.png" alt=""/>
+            <img src="<?php echo base_url();?>images/login-logo.png" alt=""/>
         </div>
 
 
@@ -74,9 +74,9 @@
 <!-- Placed js at the end of the document so the pages load faster -->
 
 <!-- Placed js at the end of the document so the pages load faster -->
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/modernizr.min.js"></script>
+<script src="<?php echo base_url();?>js/jquery-1.10.2.min.js"></script>
+<script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>js/modernizr.min.js"></script>
 
 </body>
 </html>
