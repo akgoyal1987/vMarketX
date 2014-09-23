@@ -19,6 +19,8 @@ class Logins extends CI_Controller {
 	}
 	
 	public function signin(){
+		var email = $_POST['email'];
+		var password = $_POST['password'];
 		$this->session->set_userdata(array('is_loggedin'=>1));
         redirect('logins/home');
 	}

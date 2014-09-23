@@ -17,6 +17,14 @@ class Views extends CI_Controller {
 			echo "You Are Not Logged In, Please Login First";
 		}
 	}
+
+	public function xyz(){
+		if($this->checkSession()){
+			$this->load->view('partials/xyz');			
+		}else{
+			echo "You Are Not Logged In, Please Login First";
+		}
+	}
 	
 	public function checkSession(){
 		if($this->session->userdata('is_loggedin')==1){
