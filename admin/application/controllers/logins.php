@@ -1,39 +1,43 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Logins extends CI_Controller {
-
 	public function index(){
 		if($this->checkSession()){
-			$this->home();
+			redirect('logins/home');
 		}else{
-			$this->login();
+			redirect('logins/login');
 		}
 	}
 	
 	public function home(){
-		$this->load->view('home');
+		if($this->checkSession()){
+			$data['pagename'] = "Dashboard";
+			$this->load->view('home', $data);
+		}else{
+			$this->login();
+		}		
 	}
 	
 	public function login(){
-		$this->load->view('index');
+		if($this->checkSession()){
+			redirect('logins/home');
+		}else{
+			$data['pagename'] = "Vmarketx Login";
+			$this->load->view('index', $data);
+		}
 	}
 	
 	public function signin(){
-		var email = $_POST['email'];
-		var password = $_POST['password'];
-		$this->session->set_userdata(array('is_loggedin'=>1));
-        redirect('logins/home');
+		if($this->validate_credentials()){			
+         	redirect('logins/home');
+		}else{
+         	redirect('logins/');
+		}		
 	}
 	
-	public function validate_credentials(){
-		$this->load->model('model_users');
-		
-		if ($this->model_users->can_login()){
-			return true;
-		}else{
-			$this->form_validation->set_message('validate_credentials', 'Incorrect username/password');
-			return false;
-		}
+	function validate_credentials(){
+		$this->load->model('admin');
+		return $this->admin->can_login();
 	}
 	
 	public function logout(){
@@ -42,7 +46,8 @@ class Logins extends CI_Controller {
 	}
 	
 	public function registration(){
-		$this->load->view('registration');
+		$data['pagename'] = "Vmarketx Register";
+		$this->load->view('registration', $data);
 	} 
 	
 	public function signup_validation(){
@@ -62,7 +67,7 @@ class Logins extends CI_Controller {
 	}
 	
 	function checkSession(){
-		if($this->session->userdata('is_loggedin')==1){
+		if($this->session->userdata('isLoggedIn')){
 			return true;
 		}
 		else{
