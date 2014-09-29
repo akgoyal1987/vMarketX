@@ -4,6 +4,8 @@ class States extends CI_Controller {
 
 	public function index(){
 		if($this->checkSession()){
+			$this->load->model('state');
+			$data['states'] = $this->state->get_all_states();			
 			$data['pagename'] = "States";
 			$this->load->view('states', $data);
 		}else{
@@ -11,8 +13,36 @@ class States extends CI_Controller {
 		}
 	}
 	
-	
-	
+	public function delete(){
+		if($this->checkSession()){
+			$this->load->model('state');
+			$jsonresponse = array();
+			if($this->state->delete())	
+				$jsonresponse['message']= "success";
+			else
+				$jsonresponse['message']= "failed";
+			echo json_encode($jsonresponse);
+		}else{
+			$jsonresponse['message']= "Please Login First";
+			echo json_encode($jsonresponse);
+		}
+ 	}
+
+ 	public function update(){
+		if($this->checkSession()){
+			$this->load->model('state');
+			$jsonresponse = array();
+			if($this->state->update())	
+				$jsonresponse['message']= "success";
+			else
+				$jsonresponse['message']= "failed";
+			echo json_encode($jsonresponse);
+		}else{
+			$jsonresponse['message']= "Please Login First";
+			echo json_encode($jsonresponse);
+		}
+ 	}
+
 	function checkSession(){
 		if($this->session->userdata('isLoggedIn')){
 			return true;

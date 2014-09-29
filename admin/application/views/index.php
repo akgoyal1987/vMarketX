@@ -37,18 +37,10 @@
                 <i class="fa fa-check"></i>
             </button>
 
-            <div class="registration">
-                Not a member yet?
-                <a class="" href="<?php echo base_url();?>logins/registration">
-                    Signup
-                </a>
-            </div>
+            
             <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Remember me
-                <span class="pull-right">
-                    <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
-
-                </span>
+                
             </label>
 
         </div>
