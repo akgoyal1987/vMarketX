@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$config['base_url']	= 'http://localhost/vmarketx/';
 
 /*
 |--------------------------------------------------------------------------
@@ -356,6 +356,16 @@ $config['rewrite_short_tags'] = FALSE;
 |
 */
 $config['proxy_ips'] = '';
+
+
+$config['facebook']['api_id'] = '383109518510005';
+$config['facebook']['app_secret'] = 'f3aa468acc66ec340b1656d86dc829aa';
+$config['facebook']['redirect_url'] = 'http://localhost/vmarketx/home/fbcallback';
+$config['facebook']['permissions'] = array(
+'email',
+'user_location',
+'user_birthday'
+);
 
 
 /* End of file config.php */
