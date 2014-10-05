@@ -20,14 +20,29 @@ var EditableTable = function () {
                 var jqTds = $('>td', nRow);
                 jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '" readonly>';
                 jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
-                jqTds[2].innerHTML = '<input type="text" class="form-control small" value="' + aData[2] + '">';
-                jqTds[3].innerHTML = '<input type="text" class="form-control small" value="' + aData[3] + '">';
+                jqTds[2].innerHTML = cityselect;
+                jqTds[3].innerHTML = stateselect;
+                $(".city").val(aData[2]);
+                selectedcity = aData[2];
+                $(".state").val(aData[3]);
+                selectedstate = aData[3];
+                // jqTds[2].innerHTML = '<input type="text" class="form-control small" value="' + aData[2] + '">';
+                // jqTds[3].innerHTML = '<input type="text" class="form-control small" value="' + aData[3] + '">';
                 jqTds[4].innerHTML = '<a class="edit" href="">Save</a>';
                 jqTds[5].innerHTML = '<a class="cancel" href="">Cancel</a>';
             }
 
             function saveRow(oTable, nRow) {
-                var jqInputs = $('input', nRow);
+                var jqInputs = $('input', nRow);                
+                
+                var tempcity = {};
+                tempcity.value = selectedcity;
+                jqInputs.push(tempcity);
+                
+                var tempstate = {};
+                tempstate.value = selectedstate;
+                jqInputs.push(tempstate);
+
                 oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                 oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
                 oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
@@ -77,6 +92,9 @@ var EditableTable = function () {
 
             $('#editable-sample_new').click(function (e) {
                 e.preventDefault();
+                if(nEditing!=null){
+                    return;
+                }
                 var aiNew = oTable.fnAddData(['', '', '', '',
                         '<a class="edit" href="">Edit</a>', '<a class="cancel" data-mode="new" href="">Cancel</a>'
                 ]);
@@ -93,8 +111,23 @@ var EditableTable = function () {
                 }
 
                 var nRow = $(this).parents('tr')[0];
-                oTable.fnDeleteRow(nRow);
-                alert("Deleted! Do not forget to do some ajax to sync with backend :)");
+                var aData = oTable.fnGetData(nRow);                
+                $.ajax({
+                    url : "../locations/delete",
+                    type : "post",
+                    data : "id="+aData[0],
+                    success : function(res){
+                        var response = $.parseJSON(res);                        
+                        if(response.message == "success"){
+                            oTable.fnDeleteRow(nRow);
+                        }else{
+                            alert(response.message);
+                        }
+                    },
+                    err : function(err){
+                        alert("Error Deleting State! Please try again later");
+                    }
+                });
             });
 
             $('#editable-sample a.cancel').live('click', function (e) {
@@ -120,10 +153,33 @@ var EditableTable = function () {
                     editRow(oTable, nRow);
                     nEditing = nRow;
                 } else if (nEditing == nRow && this.innerHTML == "Save") {
-                    /* Editing this row and want to save it */
+                    if(selectedcity.trim() == ""){
+                        alert("Please Select City");
+                        return;
+                    }
+                    else if(selectedstate.trim() == ""){
+                        alert("Please Select State");
+                        return;
+                    }
+                    /* Editing this row and want to save it */  
                     saveRow(oTable, nEditing);
-                    nEditing = null;
-                    alert("Updated! Do not forget to do some ajax to sync with backend :)");
+                    nEditing = null;                  
+                    var aData = oTable.fnGetData(nRow);                
+                    $.ajax({
+                        url : "../locations/update",
+                        type : "post",
+                        data : "id="+aData[0]+"&name="+aData[1]+"&city="+selectedcity+"&state="+selectedstate,
+                        success : function(res){
+                            var response = $.parseJSON(res);                        
+                            if(response.message == "success"){
+                            }else{
+                                alert(response.message);
+                            }
+                        },
+                        err : function(err){
+                            alert("Error Deleting State! Please try again later");
+                        }
+                    });
                 } else {
                     /* No edit in progress - let's start one */
                     editRow(oTable, nRow);

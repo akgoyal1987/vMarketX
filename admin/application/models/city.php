@@ -23,13 +23,12 @@ class City extends CI_Model {
   } 
 
   public function createOrUpdate(){
+    $data = array('name'=>$this->input->post('name'), "state"=>$this->input->post('state'));
     if($this->input->post('id') && $this->input->post('id') !=null){
-      $this->db->where('id',$this->input->post('id'));
-      $data = array('name'=>$this->input->post('name'), "state"=>$this->input->post('state'));
+      $this->db->where('id',$this->input->post('id'));      
       $this->db->update('cities',$data);
       return ($this->db->affected_rows()>0)? TRUE:FALSE;
     }else{
-      $data = array('name'=>$this->input->post('name'), "state"=>$this->input->post('state'));
       $this->db->insert('cities',$data);
       return ($this->db->affected_rows()>0)? TRUE:FALSE;
     }
