@@ -18,7 +18,6 @@ var EditableTable = function () {
             function editRow(oTable, nRow) {
                 var aData = oTable.fnGetData(nRow);
                 var jqTds = $('>td', nRow);
-                console.log(nRow);
                 jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '" readonly>';
                 jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
                 jqTds[2].innerHTML = select;
@@ -111,7 +110,7 @@ var EditableTable = function () {
                         if(response.message == "success"){
                             oTable.fnDeleteRow(nRow);
                         }else{
-                            alert(rsponse.message);
+                            alert(response.message);
                         }
                     },
                     err : function(err){
@@ -132,7 +131,7 @@ var EditableTable = function () {
             });
 
             $('#editable-sample a.edit').live('click', function (e) {
-                
+                e.preventDefault();
                 /* Get the row as a parent of the link that was clicked on */
                 var nRow = $(this).parents('tr')[0];
 

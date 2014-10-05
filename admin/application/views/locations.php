@@ -50,14 +50,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                        <tr class="">
-                            <td>1</td>
-                            <td>Vishnupuri</td>
-                            <td>Indore</td>
-                            <td>Madhya Pradesh</td>
-                            <td><a class="edit" href="javascript:;">Edit</a></td>
-                            <td><a class="delete" href="javascript:;">Delete</a></td>
-                        </tr>
+                <?php foreach($locations as $location) : ?>
+                    <tr class="">
+                        <td><?php echo $location['id']?></td>
+                        <td><?php echo $location['name']?></td>
+                        <td><?php echo $location['city']?></td>
+                        <td><?php echo $location['state']?></td>
+                        <td><a class="edit" href="javascript:;">Edit</a></td>
+                        <td><a class="delete" href="javascript:;">Delete</a></td>
+                    </tr>
+                <?php endforeach; ?>     
                 
                 </tbody>
                 </table>
@@ -74,6 +76,31 @@
     <script type="text/javascript" src="<?php echo base_url();?>js/data-tables/jquery.dataTables.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>js/data-tables/DT_bootstrap.js"></script>
     <!--script for editable table-->
+    <script>
+        var selectedstate = "";
+        var stateselect = "<select  class='state  form-control'><option value=''>Select State</option>";
+        <?php foreach($states as $state) : ?>
+        stateselect = stateselect + "<option value='<?php echo $state['name']?>'><?php echo $state['name']?></option>";
+        <?php endforeach; ?>
+        stateselect = stateselect + "</select>";
+        jQuery(document).ready(function() {
+            $(document).on('change', '.state',function(){
+                selectedstate =  $(this).val();
+            });
+        });
+
+        var selectedcity = "";
+        var cityselect = "<select  class='city  form-control'><option value=''>Select City</option>";
+        <?php foreach($cities as $city) : ?>
+        cityselect = cityselect + "<option value='<?php echo $city['name']?>'><?php echo $city['name']?></option>";
+        <?php endforeach; ?>
+        cityselect = cityselect + "</select>";
+        jQuery(document).ready(function() {
+            $(document).on('change', '.city',function(){
+                selectedcity =  $(this).val();
+            });
+        });
+    </script>
     <script src="<?php echo base_url();?>js/editable-table-location.js"></script>
     <!-- END JAVASCRIPTS -->
     <script>
