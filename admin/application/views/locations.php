@@ -41,79 +41,24 @@
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Points</th>
-                    <th>Status</th>
+                    <th>ID</th>
+                    <th>Location Name</th>
+                    <th>City</th>
+                    <th>State</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="">
-                    <td>Jonathan</td>
-                    <td>Smith</td>
-                    <td>3455</td>
-                    <td class="center">Lorem ipsume</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Mojela</td>
-                    <td>Firebox</td>
-                    <td>567</td>
-                    <td class="center">new user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Akuman </td>
-                    <td> Dareon</td>
-                    <td>987</td>
-                    <td class="center">ipsume dolor</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Theme</td>
-                    <td>Bucket</td>
-                    <td>342</td>
-                    <td class="center">Good Org</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Jhone</td>
-                    <td> Doe</td>
-                    <td>345</td>
-                    <td class="center">super user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Margarita</td>
-                    <td>Diar</td>
-                    <td>456</td>
-                    <td class="center">goolsd</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Jhon Doe</td>
-                    <td>Jhon Doe </td>
-                    <td>1234</td>
-                    <td class="center"> user</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>
-                <tr class="">
-                    <td>Helena</td>
-                    <td>Fox</td>
-                    <td>456</td>
-                    <td class="center"> Admin</td>
-                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                </tr>                
+                        <tr class="">
+                            <td>1</td>
+                            <td>Vishnupuri</td>
+                            <td>Indore</td>
+                            <td>Madhya Pradesh</td>
+                            <td><a class="edit" href="javascript:;">Edit</a></td>
+                            <td><a class="delete" href="javascript:;">Delete</a></td>
+                        </tr>
+                
                 </tbody>
                 </table>
                 </div>
