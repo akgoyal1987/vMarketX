@@ -18,22 +18,27 @@ var EditableTable = function () {
             function editRow(oTable, nRow) {
                 var aData = oTable.fnGetData(nRow);
                 var jqTds = $('>td', nRow);
+                console.log(nRow);
                 jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '">';
                 jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
-                jqTds[2].innerHTML = '<input type="text" class="form-control small" value="' + aData[2] + '">';
-                jqTds[3].innerHTML = '<input type="text" class="form-control small" value="' + aData[3] + '">';
-                jqTds[4].innerHTML = '<a class="edit" href="">Save</a>';
-                jqTds[5].innerHTML = '<a class="cancel" href="">Cancel</a>';
+                jqTds[2].innerHTML = select;
+                $(".state").val(aData[2]);
+                selectedstate = aData[2];
+                //jqTds[2].innerHTML = '<input type="text" class="form-control small" value="' + aData[2] + '">';
+                jqTds[3].innerHTML = '<a class="edit" href="javascript:;">Save</a>';
+                jqTds[4].innerHTML = '<a class="cancel" href="javascript:;">Cancel</a>';
             }
 
             function saveRow(oTable, nRow) {
                 var jqInputs = $('input', nRow);
+                var temp = {};
+                temp.value = selectedstate;
+                jqInputs.push(temp);
                 oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                 oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
                 oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
-                oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-                oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
-                oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 5, false);
+                oTable.fnUpdate('<a class="edit" href="javascript:;">Edit</a>', nRow, 3, false);
+                oTable.fnUpdate('<a class="delete" href="javascript:;">Delete</a>', nRow, 4, false);
                 oTable.fnDraw();
             }
 
@@ -42,8 +47,7 @@ var EditableTable = function () {
                 oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                 oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
                 oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
-                oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-                oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
+                oTable.fnUpdate('<a class="edit" href="javascript:;">Edit</a>', nRow, 3, false);
                 oTable.fnDraw();
             }
 
@@ -77,8 +81,12 @@ var EditableTable = function () {
 
             $('#editable-sample_new').click(function (e) {
                 e.preventDefault();
-                var aiNew = oTable.fnAddData(['', '', '', '',
-                        '<a class="edit" href="">Edit</a>', '<a class="cancel" data-mode="new" href="">Cancel</a>'
+                if(nEditing!=null){
+                    return;
+                }
+                selectedstate = "";
+                var aiNew = oTable.fnAddData(['', '', '',
+                        '<a class="edit" href="javascript:;">Edit</a>', '<a class="cancel" data-mode="new" href="javascript:;">Cancel</a>'
                 ]);
                 var nRow = oTable.fnGetNodes(aiNew[0]);
                 editRow(oTable, nRow);
@@ -93,8 +101,23 @@ var EditableTable = function () {
                 }
 
                 var nRow = $(this).parents('tr')[0];
-                oTable.fnDeleteRow(nRow);
-                alert("Deleted! Do not forget to do some ajax to sync with backend :)");
+                var aData = oTable.fnGetData(nRow);                
+                $.ajax({
+                    url : "../cities/delete",
+                    type : "post",
+                    data : "id="+aData[0],
+                    success : function(res){
+                        var response = $.parseJSON(res);                        
+                        if(response.message == "success"){
+                            oTable.fnDeleteRow(nRow);
+                        }else{
+                            alert(rsponse.message);
+                        }
+                    },
+                    err : function(err){
+                        alert("Error Deleting State! Please try again later");
+                    }
+                });
             });
 
             $('#editable-sample a.cancel').live('click', function (e) {
@@ -109,8 +132,7 @@ var EditableTable = function () {
             });
 
             $('#editable-sample a.edit').live('click', function (e) {
-                e.preventDefault();
-
+                
                 /* Get the row as a parent of the link that was clicked on */
                 var nRow = $(this).parents('tr')[0];
 
@@ -120,10 +142,29 @@ var EditableTable = function () {
                     editRow(oTable, nRow);
                     nEditing = nRow;
                 } else if (nEditing == nRow && this.innerHTML == "Save") {
-                    /* Editing this row and want to save it */
+                    if(selectedstate.trim() == ""){
+                        alert("Please Select State");
+                        return;
+                    }
+                    /* Editing this row and want to save it */  
                     saveRow(oTable, nEditing);
-                    nEditing = null;
-                    alert("Updated! Do not forget to do some ajax to sync with backend :)");
+                    nEditing = null;                  
+                    var aData = oTable.fnGetData(nRow);                
+                    $.ajax({
+                        url : "../cities/update",
+                        type : "post",
+                        data : "id="+aData[0]+"&name="+aData[1]+"&state="+selectedstate,
+                        success : function(res){
+                            var response = $.parseJSON(res);                        
+                            if(response.message == "success"){
+                            }else{
+                                alert(rsponse.message);
+                            }
+                        },
+                        err : function(err){
+                            alert("Error Deleting State! Please try again later");
+                        }
+                    });
                 } else {
                     /* No edit in progress - let's start one */
                     editRow(oTable, nRow);

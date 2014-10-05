@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2014 at 09:35 PM
+-- Generation Time: Oct 05, 2014 at 09:00 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -43,14 +43,24 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `city`
+-- Table structure for table `cities`
 --
 
-CREATE TABLE IF NOT EXISTS `city` (
-  `city_id` int(11) NOT NULL,
-  `city_name` varchar(45) NOT NULL,
-  `state_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `cities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `state` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `cities`
+--
+
+INSERT INTO `cities` (`id`, `name`, `state`) VALUES
+(2, 'Gwalior', 'Madhya Pradesh'),
+(10, 'Indore', 'Madhya Pradesh'),
+(11, 'sadf sf sdf', 'Chennai');
 
 -- --------------------------------------------------------
 
@@ -59,9 +69,19 @@ CREATE TABLE IF NOT EXISTS `city` (
 --
 
 CREATE TABLE IF NOT EXISTS `states` (
-  `state_id` int(11) NOT NULL,
-  `state_name` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `states`
+--
+
+INSERT INTO `states` (`id`, `name`) VALUES
+(1, 'Madhya Pradesh'),
+(2, 'Uttar Pradesh'),
+(3, 'Chennai');
 
 -- --------------------------------------------------------
 

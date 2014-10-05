@@ -5,7 +5,7 @@ class States extends CI_Controller {
 	public function index(){
 		if($this->checkSession()){
 			$this->load->model('state');
-			$data['states'] = $this->state->get_all_states();			
+			$data['states'] = $this->state->getAll();			
 			$data['pagename'] = "States";
 			$this->load->view('states', $data);
 		}else{
@@ -32,7 +32,7 @@ class States extends CI_Controller {
 		if($this->checkSession()){
 			$this->load->model('state');
 			$jsonresponse = array();
-			if($this->state->update())	
+			if($this->state->createOrUpdate())	
 				$jsonresponse['message']= "success";
 			else
 				$jsonresponse['message']= "failed";

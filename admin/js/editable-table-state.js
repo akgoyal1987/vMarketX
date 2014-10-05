@@ -136,7 +136,7 @@ var EditableTable = function () {
                     $.ajax({
                         url : "../states/update",
                         type : "post",
-                        data : "id="+aData[0]+"&state_name="+aData[1],
+                        data : "id="+aData[0]+"&name="+aData[1],
                         success : function(res){
                             var response = $.parseJSON(res);                        
                             if(response.message == "success"){
