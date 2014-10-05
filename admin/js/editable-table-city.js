@@ -158,7 +158,7 @@ var EditableTable = function () {
                             var response = $.parseJSON(res);                        
                             if(response.message == "success"){
                             }else{
-                                alert(rsponse.message);
+                                alert(response.message);
                             }
                         },
                         err : function(err){

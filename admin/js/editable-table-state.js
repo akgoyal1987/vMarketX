@@ -71,7 +71,7 @@ var EditableTable = function () {
 
             $('#editable-sample_new').click(function (e) {
                 e.preventDefault();
-                var aiNew = oTable.fnAddData(['', '', '', '',
+                var aiNew = oTable.fnAddData(['', '',
                         '<a class="edit" href="">Edit</a>', '<a class="cancel" data-mode="new" href="">Cancel</a>'
                 ]);
                 var nRow = oTable.fnGetNodes(aiNew[0]);
@@ -141,7 +141,7 @@ var EditableTable = function () {
                             var response = $.parseJSON(res);                        
                             if(response.message == "success"){
                             }else{
-                                alert(rsponse.message);
+                                alert(response.message);
                             }
                         },
                         err : function(err){
