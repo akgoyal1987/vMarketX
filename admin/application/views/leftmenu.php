@@ -79,14 +79,14 @@
             </li>
             <li <?php if($pagename=="Locations"){echo "class='active'";} ?>><a href="<?php echo base_url();?>locations/"><i class="fa fa-home"></i> <span>Locations</span></a>                
             </li>
-             <li <?php if($pagename=="Categories"){echo "class='active'";} ?>><a href="<?php echo base_url();?>category/"><i class="fa fa-home"></i> <span>Category</span></a>                
+             <li <?php if($pagename=="Categories"){echo "class='active'";} ?>><a href="<?php echo base_url();?>category/"><i class="fa fa-home"></i> <span>Categories</span></a>                
             </li>
-            <li <?php if($pagename=="Sub-Category"){echo "class='active'";} ?>><a href="<?php echo base_url();?>sub-category/"><i class="fa fa-home"></i> <span>Sub-Category</span></a>                
+            <li <?php if($pagename=="Sub-Category"){echo "class='active'";} ?>><a href="<?php echo base_url();?>sub_category/"><i class="fa fa-home"></i> <span>Sub-Categories</span></a>                
             </li>
 
         
         
-            <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
+            <li class="menu-list" style="display:none;"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
                 <ul class="sub-menu-list">
                     <li><a href="profile.html"> Profile</a></li>
                     <li><a href="invoice.html"> Invoice</a></li>
@@ -102,7 +102,7 @@
                     <li><a href="lock_screen.html"> Lockscreen </a></li>
                 </ul>
             </li>
-            <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
+            <li><a href="login.html" style="display:none;"><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
 
         </ul>
         <!--sidebar nav end-->

@@ -19,7 +19,7 @@ var EditableTable = function () {
                 var aData = oTable.fnGetData(nRow);
                 var jqTds = $('>td', nRow);
                 jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '" readonly>';
-                jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
+                jqTds[1].innerHTML = '<input type="text" class="name form-control small" value="' + aData[1] + '">';
                 jqTds[2].innerHTML = select;
                 $(".state").val(aData[2]);
                 selectedstate = aData[2];
@@ -141,7 +141,11 @@ var EditableTable = function () {
                     editRow(oTable, nRow);
                     nEditing = nRow;
                 } else if (nEditing == nRow && this.innerHTML == "Save") {
-                    if(selectedstate.trim() == ""){
+                     if($(".name").val().trim() == ""){
+                        alert("Please Enter City Name");
+                        return;
+                    }
+                    else if(selectedstate.trim() == ""){
                         alert("Please Select State");
                         return;
                     }

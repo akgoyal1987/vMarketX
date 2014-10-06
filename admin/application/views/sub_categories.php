@@ -1,5 +1,4 @@
     <!-- left side start-->
-    <!-- left side start-->
     <?php include 'leftmenu.php';?>
     <!-- left side end-->
     
@@ -14,7 +13,7 @@
                 <div class="col-sm-12">
                 <section class="panel">
                 <header class="panel-heading">
-                    CATEGORIES
+                    SUB-CATEGORIES
                     <span class="tools pull-right">
                         <a href="javascript:;" class="fa fa-chevron-down"></a>
                         <a href="javascript:;" class="fa fa-times"></a>
@@ -42,23 +41,25 @@
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
                 <tr>
-                    <th>Category ID</th>
-                    <th>Category Name</th>
+                    <th>Id</th>
+                    <th>Sub-Category</th>
+                    <th>Category</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                    foreach($categories as $category) : ?>
+                    foreach($sub_categories as $category) : ?>
                         <tr class="">
                             <td><?php echo $category['id']?></td>
                             <td><?php echo $category['name']?></td>
+                            <td><?php echo $category['category']?></td>
                             <td><a class="edit" href="javascript:;">Edit</a></td>
                             <td><a class="delete" href="javascript:;">Delete</a></td>
                         </tr>
-                <?php endforeach; ?>
-                 </tbody>
+                <?php endforeach; ?>                
+                </tbody>
                 </table>
                 </div>
                 </div>
@@ -73,7 +74,20 @@
     <script type="text/javascript" src="<?php echo base_url();?>js/data-tables/jquery.dataTables.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>js/data-tables/DT_bootstrap.js"></script>
     <!--script for editable table-->
-    <script src="<?php echo base_url();?>js/editable-table-category.js"></script>
+    <script>
+        var selectedstate = "";
+        var select = "<select  class='state  form-control'><option value=''>Select Category</option>";
+        <?php foreach($categories as $state) : ?>
+        select = select + "<option value='<?php echo $state['name']?>'><?php echo $state['name']?></option>";
+        <?php endforeach; ?>
+        select = select + "</select>";
+        jQuery(document).ready(function() {
+            $(document).on('change', '.state',function(){
+                selectedstate =  $(this).val();
+            });
+        });
+    </script>
+    <script src="<?php echo base_url();?>js/editable-table-sub_category.js"></script>
     <!-- END JAVASCRIPTS -->
     <script>
         jQuery(document).ready(function() {

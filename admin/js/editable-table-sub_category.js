@@ -19,17 +19,25 @@ var EditableTable = function () {
                 var aData = oTable.fnGetData(nRow);
                 var jqTds = $('>td', nRow);
                 jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '" readonly>';
-                jqTds[1].innerHTML = '<input type="text" class=" name form-control small" value="' + aData[1] + '">';
-                jqTds[2].innerHTML = '<a class="edit" href="">Save</a>';
-                jqTds[3].innerHTML = '<a class="cancel" href="">Cancel</a>';
+                jqTds[1].innerHTML = '<input type="text" class="name form-control small" value="' + aData[1] + '">';
+                jqTds[2].innerHTML = select;
+                $(".state").val(aData[2]);
+                selectedstate = aData[2];
+                //jqTds[2].innerHTML = '<input type="text" class="form-control small" value="' + aData[2] + '">';
+                jqTds[3].innerHTML = '<a class="edit" href="javascript:;">Save</a>';
+                jqTds[4].innerHTML = '<a class="cancel" href="javascript:;">Cancel</a>';
             }
 
             function saveRow(oTable, nRow) {
                 var jqInputs = $('input', nRow);
+                var temp = {};
+                temp.value = selectedstate;
+                jqInputs.push(temp);
                 oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                 oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-                oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 2, false);
-                oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 3, false);
+                oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
+                oTable.fnUpdate('<a class="edit" href="javascript:;">Edit</a>', nRow, 3, false);
+                oTable.fnUpdate('<a class="delete" href="javascript:;">Delete</a>', nRow, 4, false);
                 oTable.fnDraw();
             }
 
@@ -37,7 +45,8 @@ var EditableTable = function () {
                 var jqInputs = $('input', nRow);
                 oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                 oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-                oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 2, false);
+                oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
+                oTable.fnUpdate('<a class="edit" href="javascript:;">Edit</a>', nRow, 3, false);
                 oTable.fnDraw();
             }
 
@@ -74,8 +83,9 @@ var EditableTable = function () {
                 if(nEditing!=null){
                     return;
                 }
-                var aiNew = oTable.fnAddData(['', '',
-                        '<a class="edit" href="">Edit</a>', '<a class="cancel" data-mode="new" href="">Cancel</a>'
+                selectedstate = "";
+                var aiNew = oTable.fnAddData(['', '', '',
+                        '<a class="edit" href="javascript:;">Edit</a>', '<a class="cancel" data-mode="new" href="javascript:;">Cancel</a>'
                 ]);
                 var nRow = oTable.fnGetNodes(aiNew[0]);
                 editRow(oTable, nRow);
@@ -92,7 +102,7 @@ var EditableTable = function () {
                 var nRow = $(this).parents('tr')[0];
                 var aData = oTable.fnGetData(nRow);                
                 $.ajax({
-                    url : "../states/delete",
+                    url : "../sub_category/delete",
                     type : "post",
                     data : "id="+aData[0],
                     success : function(res){
@@ -100,7 +110,7 @@ var EditableTable = function () {
                         if(response.message == "success"){
                             oTable.fnDeleteRow(nRow);
                         }else{
-                            alert(rsponse.message);
+                            alert(response.message);
                         }
                     },
                     err : function(err){
@@ -122,7 +132,6 @@ var EditableTable = function () {
 
             $('#editable-sample a.edit').live('click', function (e) {
                 e.preventDefault();
-
                 /* Get the row as a parent of the link that was clicked on */
                 var nRow = $(this).parents('tr')[0];
 
@@ -132,17 +141,22 @@ var EditableTable = function () {
                     editRow(oTable, nRow);
                     nEditing = nRow;
                 } else if (nEditing == nRow && this.innerHTML == "Save") {
-                    if($(".name").val().trim() == ""){
-                        alert("Please Enter State Name");
+                     if($(".name").val().trim() == ""){
+                        alert("Please Enter Sub Category Name");
                         return;
                     }
+                    else if(selectedstate.trim() == ""){
+                        alert("Please Select Category");
+                        return;
+                    }
+                    /* Editing this row and want to save it */  
                     saveRow(oTable, nEditing);
                     nEditing = null;                  
                     var aData = oTable.fnGetData(nRow);                
                     $.ajax({
-                        url : "../states/update",
+                        url : "../sub_category/update",
                         type : "post",
-                        data : "id="+aData[0]+"&name="+aData[1],
+                        data : "id="+aData[0]+"&name="+aData[1]+"&category="+selectedstate,
                         success : function(res){
                             var response = $.parseJSON(res);                        
                             if(response.message == "success"){

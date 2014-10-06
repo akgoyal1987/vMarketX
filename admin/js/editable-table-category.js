@@ -19,7 +19,7 @@ var EditableTable = function () {
                 var aData = oTable.fnGetData(nRow);
                 var jqTds = $('>td', nRow);
                 jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '" readonly>';
-                jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
+                jqTds[1].innerHTML = '<input type="text" class="name form-control small" value="' + aData[1] + '">';
                 jqTds[2].innerHTML = '<a class="edit" href="">Save</a>';
                 jqTds[3].innerHTML = '<a class="cancel" href="">Cancel</a>';
             }
@@ -71,6 +71,9 @@ var EditableTable = function () {
 
             $('#editable-sample_new').click(function (e) {
                 e.preventDefault();
+                 if(nEditing!=null){
+                    return;
+                }
                 var aiNew = oTable.fnAddData(['', '',
                         '<a class="edit" href="">Edit</a>', '<a class="cancel" data-mode="new" href="">Cancel</a>'
                 ]);
@@ -129,6 +132,10 @@ var EditableTable = function () {
                     editRow(oTable, nRow);
                     nEditing = nRow;
                 } else if (nEditing == nRow && this.innerHTML == "Save") {
+                    if($(".name").val().trim() == ""){
+                        alert("Please Enter Category Name");
+                        return;
+                    }
                     /* Editing this row and want to save it */  
                     saveRow(oTable, nEditing);
                     nEditing = null;                  

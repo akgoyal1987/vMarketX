@@ -1,15 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Sub-category extends CI_Controller {
+class Sub_category extends CI_Controller {
 
 	public function index(){
 		if($this->checkSession()){
-			$this->load->model('city');
-			$this->load->model('state');
-			$data['states'] = $this->state->getAll();	
-			$data['cities'] = $this->city->getAll();			
+			$this->load->model('categories');
+			$this->load->model('sub_categories');
+			$data['categories'] = $this->categories->getAll();	
+			$data['sub_categories'] = $this->sub_categories->getAll();			
 			$data['pagename'] = "Sub-Category";
-			$this->load->view('cities', $data);
+			$this->load->view('sub_categories', $data);
 		}
 		else
 		{
@@ -19,9 +19,9 @@ class Sub-category extends CI_Controller {
 	
 	public function delete(){
 		if($this->checkSession()){
-			$this->load->model('city');
+			$this->load->model('sub_categories');
 			$jsonresponse = array();
-			if($this->city->delete())	
+			if($this->sub_categories->delete())	
 				$jsonresponse['message']= "success";
 			else
 				$jsonresponse['message']= "failed";
@@ -34,9 +34,9 @@ class Sub-category extends CI_Controller {
 
  	public function update(){
 		if($this->checkSession()){
-			$this->load->model('city');
+			$this->load->model('sub_categories');
 			$jsonresponse = array();
-			if($this->city->createOrUpdate())	
+			if($this->sub_categories->createOrUpdate())	
 				$jsonresponse['message']= "success";
 			else
 				$jsonresponse['message']= "failed";
