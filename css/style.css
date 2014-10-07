@@ -86,33 +86,36 @@ hr{
 	background:#2f353b;
 	margin-bottom:20px;
 }
-	.header-top{
-		background:#252a2f;
-	}
+.header-top{
+	background:#252a2f;
+}
 	
 /* Header Links Styles Starts */
 
-		.header-links ul{
-		}
-			.header-links li{
-				display:inline-block;
-			}
-			.header-links li .fa{
-				margin-right:3px;
-			}
-			.header-links li, 
-			.header-links li a{
-				color:#fff;
-			}
-			.header-links li a{
-				padding:12px 15px 12px 0;
-			}
-			.header-links li a:hover, 
-			.header-links li a:focus, 
-			.header-links li.active a{
-				background:none;
-				color:#ffb400;
-			}
+.header-links ul{
+}
+.header-links li{
+	display:inline-block;
+}
+.header-links li .fa{
+	margin-right:3px;
+}
+.header-links li, 
+.header-links li a{
+	color:#fff;
+}
+.header-links li a{
+	padding:12px 15px 12px 0;
+}
+.header-links li a:hover, 
+.header-links li a:focus, 
+.header-links li.active a{
+	background:none;
+	color:#ffb400;
+}
+.welcome_message {
+    color: gold;
+}
 			
 /* Currency & Languages Drop Down Styles Starts */
 

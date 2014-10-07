@@ -201,22 +201,30 @@
 						<div class="col-sm-4 col-xs-12">
 							<div class="pull-right">
 							<!-- Currency Starts -->
-								<div class="btn-group">
-									<a class="btn logout_btn" href="<?php echo base_url()?>home/login">
-										Login
-									</a>
-								</div>
+
+								<?php if(!$this->session->userdata('isLoggedIn')) {?>
+									<div class="btn-group">									
+										<a class="btn logout_btn" href="<?php echo base_url()?>home/login">
+											Login
+										</a>
+									</div>
+								<?php } ?>
 								<!-- <div class="btn-group fb_login_btn">
 									<fb:login-button class="btn btn-link" scope="public_profile,email" onlogin="checkLoginState();">
 									</fb:login-button>								
 								</div>	 -->							
 							<!-- Currency Ends -->
 							<!-- Languages Starts -->
+							<?php if($this->session->userdata('isLoggedIn')) {?>
 								<div class="btn-group">
+									<p class="welcome_message btn">Welcome <?php echo $this->session->userdata('firstname')." ".$this->session->userdata('lastname') ?></p>
+								</div>
+								<div class="btn-group">									
 									<a class="btn logout_btn" href="<?php echo base_url()?>home/logout">
 										Logout
 									</a>
 								</div>
+							<?php } ?>
 							<!-- Languages Ends -->
 							</div>
 						</div>

@@ -3,12 +3,7 @@
 class Home extends CI_Controller {
 	
 	public function index(){
-		$this->load->library('facebook');
-		$login_url = $this->facebook->get_login_url();
-    	echo($login_url);
-    	die();
-    	redirect($login_url);
-		//$this->showhome();    
+		$this->showhome();    
 	}
 	
 	public function about(){
@@ -26,8 +21,32 @@ class Home extends CI_Controller {
 	}
 
 
-    public function login(){    	
-		$this->load->view('login');
+    public function login(){
+    	$this->session->set_userdata( array(
+              'id'=>1,
+              'firstname'=> "Ankit",              
+              'lastname'=> "Goyal",              
+              'email'=> "ak.goyal1987@gmail.com",              
+              'username'=> "user",              
+              'isLoggedIn'=>true
+            )
+        );
+        redirect('/');
+	  //$this->load->view('login');
+	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('/');
+	}
+
+	function checkSession(){
+		if($this->session->userdata('isLoggedIn')){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 }
