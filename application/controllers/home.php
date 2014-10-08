@@ -8,7 +8,6 @@ class Home extends CI_Controller {
 	
 	public function about(){
 		$this->load->view('about');
-	
 	}
 
     public function contact(){
@@ -20,6 +19,13 @@ class Home extends CI_Controller {
 		$this->load->view('home');
 	}
 
+	public function userhome(){
+		if($this->checkSession()){
+			$this->load->view('userhome');
+		}else{
+			redirect("/");
+		}
+	}
 
     public function login(){
     	$this->session->set_userdata( array(
