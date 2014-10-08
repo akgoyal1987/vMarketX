@@ -2,10 +2,10 @@
 	<!-- Main Container Starts -->
 		<div id="main-container" class="container">
 		<!-- Breadcrumb Starts -->
-			<ol class="breadcrumb">
+<!-- 			<ol class="breadcrumb">
 				<li><a href="index.html">Home</a></li>
 				<li class="active">Shopping Cart</li>
-			</ol>
+			</ol> -->
 		<!-- Breadcrumb Ends -->
 		<!-- Main Heading Starts -->
 			<h2 class="main-heading text-center">
