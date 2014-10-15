@@ -276,7 +276,7 @@
 							</li>
 							<li class="dropdown">
 								<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">
-									Orders
+									My Orders
 								</a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a tabindex="-1" href="<?php echo base_url();?>orders/completeorders">View Orders</a></li>
@@ -284,34 +284,13 @@
 								</ul>
 							</li>
 							<li class="dropdown">
-								<a href="category-list.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">Curry Powder</a>
-								<div class="dropdown-menu">
-									<div class="dropdown-inner">
-										<ul class="list-unstyled">
-											<li class="dropdown-header">Sub Category</li>
-											<li><a tabindex="-1" href="#">item 1</a></li>
-											<li><a tabindex="-1" href="#">item 2</a></li>
-											<li><a tabindex="-1" href="#">item 3</a></li>
-										</ul>										
-										<ul class="list-unstyled">
-											<li class="dropdown-header">Sub Category</li>
-											<li><a tabindex="-1" href="#">item 1</a></li>
-											<li><a tabindex="-1" href="#">item 2</a></li>
-											<li><a tabindex="-1" href="#">item 3</a></li>
-										</ul>
-										<ul class="list-unstyled">
-											<li class="dropdown-header">Sub Category</li>
-											<li><a tabindex="-1" href="#">item 1</a></li>
-											<li><a tabindex="-1" href="#">item 2</a></li>
-											<li><a tabindex="-1" href="#">item 3</a></li>
-										</ul>
-									</div>
-								</div>
+								<a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">My Profile</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a tabindex="-1" href="<?php echo base_url();?>orders/completeorders">Edit Profile</a></li>
+									<li><a tabindex="-1" href="<?php echo base_url();?>orders/pendingorders">Change Password</a></li>
+								</ul>
 							</li>
-							<li><a href="category-list.html">Herb Blends</a></li>
-							<li><a href="category-list.html">Seasonings</a></li>
-							<li><a href="category-list.html">Salt Free Spices</a></li>
-							<li><a href="category-list.html">Sambar Powders</a></li>
+							
 						</ul>
 					</div>
 				<!-- Navbar Cat collapse Ends -->
