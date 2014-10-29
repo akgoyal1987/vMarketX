@@ -9,19 +9,15 @@ class Admin extends CI_Model {
 		$this->db->where('username', $this->input->post('email'));
 		$this->db->where('password', md5($this->input->post('password')));
 		$result= $this->db->get('admin')->result();
-    // The results of the query are stored in $login.
-    // If a value exists, then the user account exists and is validated
-    if ( is_array($result) && count($result) == 1 ) {
+    if ( is_array($result) && count($result) == 1 )
+	{
         $this->set_session($result[0]);
         return true;
     }
-		//  if ($query->num_rows()==1){
-    //     $this->set_session(userinfo);
-	  //     return true;
-		//  }
-    else{
+    else
+	{
 			return false;
-		}
+	}
 	}
   public function insert_user(){
       $date = $this->input->post('date');

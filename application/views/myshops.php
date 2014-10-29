@@ -24,11 +24,9 @@
 								Shop Name
 							</td>
 							<td class="text-center">
-								Category
+								Shop Category
 							</td>							
-							<td class="text-center">
-								Address
-							</td>
+							
 							<td class="text-center">
 								Action
 							</td>
@@ -38,7 +36,7 @@
 						<tr>
 							<td class="text-center">
 								<a href="product.html">
-									<img src="images/product-images/cart-thumb-img1.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
+									<img src="<?php echo base_url();?>images/product-images/cart-thumb-img1.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
 								</a>
 							</td>
 							<td class="text-center">
@@ -46,12 +44,10 @@
 							</td>							
 							<td class="text-center">
 								<div class="input-group btn-block">
-									<input type="text" name="quantity" value="1" size="1" class="form-control" />
+									<span>Simply Organic seeds</span>
 								</div>								
 							</td>							
-							<td class="text-center">
-								$150.00
-							</td>
+							
 							<td class="text-center">
 								<button type="submit" title="Update" class="btn btn-default tool-tip">
 									<i class="fa fa-refresh"></i>
@@ -64,7 +60,7 @@
 						<tr>
 							<td class="text-center">
 								<a href="product.html">
-									<img src="images/product-images/cart-thumb-img1.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
+									<img src="<?php echo base_url();?>images/product-images/cart-thumb-img1.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
 								</a>
 							</td>
 							<td class="text-center">
@@ -72,12 +68,10 @@
 							</td>							
 							<td class="text-center">
 								<div class="input-group btn-block">
-									<input type="text" name="quantity" value="1" size="1" class="form-control" />
+									<span>Simply Organic seeds</span>
 								</div>								
 							</td>							
-							<td class="text-center">
-								$150.00
-							</td>
+							
 							<td class="text-center">
 								<button type="submit" title="Update" class="btn btn-default tool-tip">
 									<i class="fa fa-refresh"></i>

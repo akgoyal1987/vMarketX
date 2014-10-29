@@ -287,7 +287,7 @@
 								<a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">My Profile</a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a tabindex="-1" href="<?php echo base_url();?>orders/completeorders">Edit Profile</a></li>
-									<li><a tabindex="-1" href="<?php echo base_url();?>orders/pendingorders">Change Password</a></li>
+									
 								</ul>
 							</li>
 							
