@@ -146,12 +146,30 @@
 											<textarea rows="8" class="form-control" placeholder="Description" required></textarea>
 										</div>
 									</div>
-									
+									<div class="form-group">
+										<label class="col-sm-3" for="inputPhone">Select Images</label>
+									</div>
+									<div class="row">
+										<div class="col-md-3 img_container">
+											<input id="image1" type="file" name='image1'/>
+											<img class="form-control" id="target1" alt="Click to Select Image" src="sf.jpg"/>
+										</div>
+										<div class="col-md-3 img_container">
+											<input id="image2" type="file" name='image2'/>
+											<img class="form-control" id="target2" alt="Click to Select Image" src="sf.jpg"/>
+										</div>
+										<div class="col-md-3 img_container">
+											<input id="image3" type="file" name='image3'/>
+											<img class="form-control" id="target3" alt="Click to Select Image" src="sf.jpg"/>
+										</div>
+										<div class="col-md-3 img_container">
+											<input id="image4" type="file" name='image4'/>
+											<img class="form-control" id="target4" alt="Click to Select Image" src="sf.jpg"/>
+										</div>
+									</div>
 									<div class="form-group">
 										<div class="col-sm-offset-3 col-sm-6">
 											<input type="submit" class="btn btn-warning">
-									
-											
 										</div>
 									</div>
 								</form>
@@ -161,5 +179,45 @@
 					<!-- Shipment Information Block Ends -->
 					</div>
 		</div>
+		<style>
+			.img_container input{
+				display: none;
+			}
+			.img_container img{
+				background-color: red;
+				cursor:pointer;
+			}
+		</style>
+		<script>
+			function showImage(src,target) {
+			  var fr=new FileReader();
+			  // when image is loaded, set the src of the image where you want to display it
+			  fr.onload = function(e) { target.src = this.result; };
+			  src.addEventListener("change",function() {
+			    // fill fr with image data    
+			    fr.readAsDataURL(src.files[0]);
+			  });
+			}
+			var image1 = document.getElementById("image1");
+			var target1 = document.getElementById("target1");
+			showImage(image1,target1);
+			var image2 = document.getElementById("image2");
+			var target2 = document.getElementById("target2");
+			showImage(image2,target2);
+			var image3 = document.getElementById("image3");
+			var target3 = document.getElementById("target3");
+			showImage(image3,target3);
+			var image4 = document.getElementById("image4");
+			var target4 = document.getElementById("target4");
+			showImage(image4,target4);
+			
+
+			$(document).ready(function(){
+				$(".img_container img").height($(".img_container img").width());
+				$(".img_container img").click(function(){
+			  		$(this).parent().children('input').click();
+				});
+			})
+		</script>
 	<!-- Main Container Ends -->
 <?php include('footer.php');?>
