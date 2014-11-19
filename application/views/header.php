@@ -126,6 +126,12 @@
 	  //     });
 	  // }
 	</script>	
+	<script src="<?php echo base_url();?>js/jquery-1.11.1.min.js"></script>
+	<script src="<?php echo base_url();?>js/jquery-migrate-1.2.1.min.js"></script>	
+	<script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+	<script src="<?php echo base_url();?>js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="<?php echo base_url();?>js/jquery.magnific-popup.min.js"></script>
+	<script src="<?php echo base_url();?>js/custom.js"></script>
 </head>
 <body>
 	<!-- Header Section Starts -->
