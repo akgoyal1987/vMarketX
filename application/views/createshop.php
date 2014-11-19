@@ -54,21 +54,21 @@
 							</div>
 							<div class="panel-body">
 							<!-- Form Starts -->
-								<form class="form-horizontal" role="form">
+								<form class="form-horizontal" role="form" method="post" action="<?php echo base_url();?>Shops/createshop">
 									<div class="form-group">
 										<label for="inputFname" class="col-sm-3 control-label">Shop Name :</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control" id="inputFname" placeholder="Shop Name" required>
+											<input type="text" class="form-control" id="inputFname" name="shop_name" placeholder="Shop Name" required>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputCountry" class="col-sm-3 control-label">Shop Category :</label>
 										<div class="col-sm-6">
-											<select class="form-control" id="inputCountry1" required>
+											<select class="form-control" id="inputCountry1" name="shop_category"  required>
 												<option value="">--Select Category--</option>
 												<option value="kirana">kirana</option>
-												<option>cloth</option>
-												<option>fdf</option>
+												<option value="cloth">cloth</option>
+												<option value="fdf">fdf</option>
 												<option></option>
 											</select>
 										</div>
@@ -76,74 +76,74 @@
 									<div class="form-group">
 										<label for="inputAddress1" class="col-sm-3 control-label">Address :</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control" id="inputAddress1" placeholder="Address" required>
+											<input type="text" class="form-control" id="inputAddress1" name="address" placeholder="Address" required>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputAddress2" class="col-sm-3 control-label">Location :</label>
 										<div class="col-sm-6">
-											<select class="form-control" id="inputCountry1" required>
+											<select class="form-control" id="inputCountry1" name="location" required>
 												<option value="">--Select Location--</option>
-												<option>India</option>
-												<option>USA</option>
-												<option>UK</option>
-												<option>China</option>
+												<option value="india">India</option>
+												<option value="USA">USA</option>
+												<option value="UK">UK</option>
+												<option value="china">China</option>
 											</select>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputCity" class="col-sm-3 control-label">City :</label>
 										<div class="col-sm-6">
-											<select class="form-control" id="inputCountry1" required>
+											<select class="form-control" id="inputCountry1" name="city" required>
 												<option value="">--Select City--</option>
-												<option>India</option>
-												<option>USA</option>
-												<option>UK</option>
-												<option>China</option>
+												<option value="indore">Indore</option>
+												<option value="bhopal">Bhopal</option>
+												<option value="gwalior">Gwalior</option>
+												<option value="ujjain">Ujjain</option>
 											</select>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputRegion" class="col-sm-3 control-label">State :</label>
 										<div class="col-sm-6">
-											<select class="form-control" id="inputCountry1" required>
+											<select class="form-control" id="inputCountry1" name="state" required>
 												<option value="">--Select State--</option>
-												<option>India</option>
-												<option>USA</option>
-												<option>UK</option>
-												<option>China</option>
+												<option value="MP">Madhya pradesh</option>
+												<option value="rajasthan">Rajasthan</option>
+												<option value="gujrat">Gujrat</option>
+												<option value="goa">Goa</option>
 											</select>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputPostCode" class="col-sm-3 control-label">Postal Code :</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control" id="inputPostCode" placeholder="Postal code" pattern="[0-9]{6}" required title=" For Ex.-452002">
+											<input type="text" class="form-control" id="inputPostCode" name="postal_code" placeholder="Postal code" pattern="[0-9]{6}" required title=" For Ex.-452002">
 										</div>
 									</div>
 
 									<div class="form-group">
 										<label for="inputPhone" class="col-sm-3 control-label">Phone :</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control" id="inputPhone" placeholder="Phone" pattern="[0-9]{10}" required title=" For Ex.-9074739352">
+											<input type="text" class="form-control" id="inputPhone" name="phone_no" placeholder="Phone" pattern="[0-9]{10}" required title=" For Ex.-9074739352">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputEmail" class="col-sm-3 control-label">Email :</label>
 										<div class="col-sm-6">
-											<input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+											<input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" required>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputEmail" class="col-sm-3 control-label">Minimum Amount :</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control" id="inputEmail" placeholder="Min Amount" required>
+											<input type="text" class="form-control" id="inputEmail" name="min_ammount" placeholder="Min Amount" required>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputPhone" class="col-sm-3 control-label">Description :</label>
 										<div class="col-sm-6">
-											<textarea rows="8" class="form-control" placeholder="Description" required></textarea>
+											<textarea rows="8" class="form-control" placeholder="Description" name="description" required></textarea>
 										</div>
 									</div>
 									

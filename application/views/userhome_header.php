@@ -10,7 +10,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
-	<title>Spice Shoppe Stores - Bootstrap 3 Template</title>
+	<title>Spice Shoppe Stores</title>
 	
 	<!-- Bootstrap Core CSS -->
 	<link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
@@ -240,7 +240,7 @@
 					<!-- Logo Starts -->
 						<div class="col-md-6">
 							<div id="logo">
-								<a href="index.html"><img src="<?php echo base_url();?>images/logo.png" title="Spice Shoppe" alt="Spice Shoppe" class="img-responsive" /></a>
+								<a href="<?php echo base_url()."home/userhome"?>"><img src="<?php echo base_url();?>images/logo.png" title="Spice Shoppe" alt="Spice Shoppe" class="img-responsive" /></a>
 							</div>
 						</div>
 					<!-- Logo Starts -->
@@ -271,7 +271,7 @@
 								</a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a tabindex="-1" href="<?php echo base_url();?>shops/myshops">View My Shops</a></li>
-									<li><a tabindex="-1" href="<?php echo base_url();?>shops/createshop">Create New Shop</a></li>
+									<li><a tabindex="-1" href="<?php echo base_url();?>shops/createshopview">Create New Shop</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">

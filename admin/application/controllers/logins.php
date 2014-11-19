@@ -50,22 +50,6 @@ class Logins extends CI_Controller {
 		$this->load->view('registration', $data);
 	} 
 	
-	public function signup_validation(){
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('date', 'Walk In Date', 'required');
-		$this->form_validation->set_rules('name', 'Name', 'required|alpha');
-		$this->form_validation->set_rules('mobile', 'Mobile', 'required|trim|numeric|exact_length[10]');
-		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[reg_user.email]');
-		if ($this->form_validation->run() == FALSE){
-			$this->load->view('registration');
-		}	
-		else{
-			$this->load->model('model_users');
-			$this->model_users->insert_user();
-			redirect('site/thanks');              
-        }
-	}
-	
 	function checkSession(){
 		if($this->session->userdata('isLoggedIn')){
 			return true;

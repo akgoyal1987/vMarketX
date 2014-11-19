@@ -17,70 +17,43 @@
 				<table class="table table-bordered">
 					<thead>
 						<tr>
-							<td class="text-center">
-								Logo
-							</td>
-							<td class="text-center">
-								Shop Name
-							</td>
-							<td class="text-center">
-								Shop Category
-							</td>							
-							
-							<td class="text-center">
-								Action
-							</td>
+							<td class="text-center">Logo</td>
+							<td class="text-center">Shop Name</td>
+							<td class="text-center">Shop Category</td>
+							<td class="text-center">Email Address</td>
+							<td class="text-center">Action</td>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td class="text-center">
+						<?php
+
+	        				foreach($results as $row)
+	        				{
+			   				    ?>
+			   				    <tr>
+			   				    <td class="text-center">
 								<a href="product.html">
 									<img src="<?php echo base_url();?>images/product-images/cart-thumb-img1.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
 								</a>
 							</td>
-							<td class="text-center">
-								<a href="product-full.html">Simply Organic seeds</a>
-							</td>							
-							<td class="text-center">
-								<div class="input-group btn-block">
-									<span>Simply Organic seeds</span>
-								</div>								
-							</td>							
-							
-							<td class="text-center">
-								<button type="submit" title="Update" class="btn btn-default tool-tip">
-									<i class="fa fa-refresh"></i>
-								</button>
-								<button type="button" title="Remove" class="btn btn-default tool-tip">
-									<i class="fa fa-times-circle"></i>
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td class="text-center">
-								<a href="product.html">
-									<img src="<?php echo base_url();?>images/product-images/cart-thumb-img1.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
-								</a>
-							</td>
-							<td class="text-center">
-								<a href="product-full.html">Simply Organic seeds</a>
-							</td>							
-							<td class="text-center">
-								<div class="input-group btn-block">
-									<span>Simply Organic seeds</span>
-								</div>								
-							</td>							
-							
-							<td class="text-center">
-								<button type="submit" title="Update" class="btn btn-default tool-tip">
-									<i class="fa fa-refresh"></i>
-								</button>
-								<button type="button" title="Remove" class="btn btn-default tool-tip">
-									<i class="fa fa-times-circle"></i>
-								</button>
-							</td>
-						</tr>					
+			   			<?php
+    						foreach($row as $column){?>
+        					<td class='text-center'><?php echo $column?></td>
+    						
+    						<?php }?>
+    						<td class='text-center'>
+							<button type='submit' title='Update' class='btn btn-default tool-tip'>
+						     <i class='fa fa-refresh'>
+						     </i>
+						     </button>
+						     <button type='button' title='Remove' class='btn btn-default tool-tip'>
+			   				  <i class='fa fa-times-circle'>
+							</i>
+			    			</button>
+			    			</td>
+    		    			</tr>
+							<?php }
+						?>
 					</tbody>
 					<tfoot>
 						<!-- <tr>
