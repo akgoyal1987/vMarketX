@@ -5,7 +5,11 @@ class Shops extends CI_Controller {
 
 	public function createshopview(){
 		if($this->checkSession()){
-			$this->load->view('createshop');
+			$this->load->model("getdb");
+	        $data['cities']= $this->getdb->getCity();
+	        $data['locations']= $this->getdb->getLocation();
+	        $data['states']= $this->getdb->getState();
+			$this->load->view('createshop',$data);
 		}else{
 			redirect("vmarketx");
 		}
@@ -34,13 +38,65 @@ class Shops extends CI_Controller {
 		if($this->checkSession()){
 			$this->load->model("shops_model");
 	        $data['results']= $this->shops_model->myshops();
-	        if(count($data['results'])==0){
-	         print "<script>alert('No Record Found');
+	        if(count($data['results'])==0)
+	        {
+	         print "<script>alert('No Record Founds');
              window.location.href = '" . base_url() . "home/userhome';
              </script>";	
 	        }
-	        else{
+	        else
+	        {
 	        	$this->load->view("myshops",$data);
+	        }
+		}
+		else{
+			redirect("vmarketx");
+		}
+	}
+
+	public function delete($id){
+		if($this->checkSession()){
+			$this->load->model("shops_model");
+			if($this->shops_model->delete($id))
+			{
+			print "<script>alert('Delete Successfully');
+             window.location.href = '" . base_url() . "Shops/myshops';
+             </script>";
+			}
+		}
+
+	}
+
+	public function selectShop($id){
+		if($this->checkSession()){
+			$this->load->model("shops_model");
+	        $data['results']= $this->shops_model->selectshop($id);
+	        $this->load->model("getdb");
+	        $data['cities']= $this->getdb->getCity();
+	        $data['locations']= $this->getdb->getLocation();
+	        $data['states']= $this->getdb->getState();
+	        $this->load->view("editshop",$data);
+		}
+		else{
+			redirect("vmarketx");
+		}
+	}
+
+	public function update($id){
+			if($this->checkSession()){
+			$this->load->model("shops_model");
+	        if($this->shops_model->update($id))
+	        {
+	        print "<script>
+	        window.location.href = '" . base_url() . "Shops/myshops';
+             alert('Shop Has Been Successfully Updated');
+             </script>";	
+	        }
+	        else
+	        {
+	        print "<script>alert('You Didn`t Have Any Changes');
+             window.location.href = '" . base_url() . "Shops/myshops';
+             </script>";
 	        }
 		}
 		else{
