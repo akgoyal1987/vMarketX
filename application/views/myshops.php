@@ -26,9 +26,7 @@
 					</thead>
 					<tbody>
 						<?php
-
-	        				foreach($results as $row)
-	        				{
+	        				 foreach($results as $row){
 			   				    ?>
 			   				    <tr>
 			   				    <td class="text-center">
@@ -36,24 +34,23 @@
 									<img src="<?php echo base_url();?>images/product-images/cart-thumb-img1.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
 								</a>
 							</td>
-			   			<?php
-    						foreach($row as $column){?>
-        					<td class='text-center'><?php echo $column?></td>
-    						
-    						<?php }?>
+							<td class="text-center"><a href="<?php echo base_url() . "products/shophome/" . $row->s_id; ?>"><?php echo $row->shop_name; ?></a></td>
+							<td class="text-center"><?php echo $row->shop_category; ?></td>
+							<td class="text-center"><?php echo $row->email; ?></td>
     						<td class='text-center'>
-							<button type='submit' title='Update' class='btn btn-default tool-tip'>
+							<a title='Update' class='btn btn-default tool-tip' href="<?php echo base_url() . "Shops/selectShop/" . $row->s_id; ?>">
+							
 						     <i class='fa fa-refresh'>
 						     </i>
+						    </a>
 						     </button>
-						     <button type='button' title='Remove' class='btn btn-default tool-tip'>
+						    <a title='Remove' class='btn btn-default tool-tip' href="<?php echo base_url() . "Shops/delete/" . $row->s_id; ?>">
 			   				  <i class='fa fa-times-circle'>
 							</i>
-			    			</button>
+			    			</a>
 			    			</td>
     		    			</tr>
-							<?php }
-						?>
+			   			<?php } ?>
 					</tbody>
 					<tfoot>
 						<!-- <tr>
