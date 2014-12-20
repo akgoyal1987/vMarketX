@@ -18,6 +18,7 @@ class Home extends CI_Controller {
     public function showhome(){
     	$this->load->model("getdb");
     	$data['categories']= $this->getdb->getCategory();
+    	$data['subcategories']= $this->getdb->getSubcategory();
 		$this->load->view('home',$data);
 	}
 
