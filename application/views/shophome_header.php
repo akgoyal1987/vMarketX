@@ -144,7 +144,7 @@
 							<div class="header-links">
 								<ul class="nav navbar-nav pull-left">
 									<li>
-										<a href="index.html">
+										<a href="<?php echo base_url();?>">
 											<i class="fa fa-home" title="Home"></i>
 											<span class="hidden-sm hidden-xs">
 												Home
