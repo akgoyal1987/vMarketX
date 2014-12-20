@@ -366,46 +366,9 @@
 				<!-- Navbar Cat collapse Starts -->
 					<div class="collapse navbar-collapse navbar-cat-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="category-list.html">Spices &amp; Herbs</a></li>
-							<li class="dropdown">
-								<a href="category-list.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">
-									Chili Powder 
-								</a>
-								<ul class="dropdown-menu" role="menu">
-									<li><a tabindex="-1" href="#">Red Chilly</a></li>
-									<li><a tabindex="-1" href="#">Green Chilly</a></li>
-									<li><a tabindex="-1" href="#">Italian Chilly</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="category-list.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">Curry Powder</a>
-								<div class="dropdown-menu">
-									<div class="dropdown-inner">
-										<ul class="list-unstyled">
-											<li class="dropdown-header">Sub Category</li>
-											<li><a tabindex="-1" href="#">item 1</a></li>
-											<li><a tabindex="-1" href="#">item 2</a></li>
-											<li><a tabindex="-1" href="#">item 3</a></li>
-										</ul>										
-										<ul class="list-unstyled">
-											<li class="dropdown-header">Sub Category</li>
-											<li><a tabindex="-1" href="#">item 1</a></li>
-											<li><a tabindex="-1" href="#">item 2</a></li>
-											<li><a tabindex="-1" href="#">item 3</a></li>
-										</ul>
-										<ul class="list-unstyled">
-											<li class="dropdown-header">Sub Category</li>
-											<li><a tabindex="-1" href="#">item 1</a></li>
-											<li><a tabindex="-1" href="#">item 2</a></li>
-											<li><a tabindex="-1" href="#">item 3</a></li>
-										</ul>
-									</div>
-								</div>
-							</li>
-							<li><a href="category-list.html">Herb Blends</a></li>
-							<li><a href="category-list.html">Seasonings</a></li>
-							<li><a href="category-list.html">Salt Free Spices</a></li>
-							<li><a href="category-list.html">Sambar Powders</a></li>
+						<?php foreach($categories as $category){ ?>
+						<li><a href="category-list.html"><?php echo $category->name ?></a></li>
+						<?php } ?>
 						</ul>
 					</div>
 				<!-- Navbar Cat collapse Ends -->
