@@ -367,8 +367,14 @@
 					<div class="collapse navbar-collapse navbar-cat-collapse">
 						<ul class="nav navbar-nav">
 						<?php foreach($categories as $category){ ?>
-						<li><a href="category-list.html"><?php echo $category->name ?></a></li>
+						<li class="dropdown">
+							<a href="category-list.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">
+							<?php echo $category->name ?>
+							</a>
+							</li>
+						
 						<?php } ?>
+							
 						</ul>
 					</div>
 				<!-- Navbar Cat collapse Ends -->
