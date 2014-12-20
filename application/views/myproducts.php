@@ -30,21 +30,21 @@
 	        				 ?>
 			   				    <tr>
 			   				    <td class="text-center">
-								<a href="product.html">
-									<img src="<?php echo base_url();?>images/product-images/cart-thumb-img1.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
+								<a href="">
+								<img src="<?php echo base_url()."uploads/products/". $row->image1 ?>" alt="Product Name" title="Product Name" class="img-thumbnail" width=120 height=120/>
 								</a>
 							</td>
 							<td class="text-center"><?php echo $row->product_name; ?></td>
 							<td class="text-center"><?php echo $row->product_category; ?></td>
 							<td class="text-center"><?php echo $row->product_subcategory; ?></td>
 							<td class='text-center'>
-							<a title='Update' class='btn btn-default tool-tip' href="<?php echo base_url() . "products/selectProduct/" . $row->p_id; ?>">
-						    <i class='fa fa-refresh'>
+							<a title='Update' class='btn btn-default tool-tip' href="<?php echo base_url() . "products/selectProduct/" .$id."/". $row->p_id; ?>">
+						    <i class='fa fa-edit'>
 						    </i>
 						    </a>
 						    </button>
-						    <a title='Remove' class='btn btn-default tool-tip' href="<?php echo base_url() . "products/deleteProduct/" . $row->p_id; ?>">
-			   				<i class='fa fa-times-circle'>
+						    <a title='Remove' class='btn btn-default tool-tip' onclick="return confirm('Are You Sure?')" href="<?php echo base_url() . "products/deleteProduct/".$id."/" . $row->p_id; ?>">
+			   				<i class="fa fa-trash-o">
 							</i>
 			    			</a>
 			    			</td>

@@ -10,7 +10,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
-	<title>Spice Shoppe Stores</title>
+	<title>Vcartx Stores</title>
 	
 	<!-- Bootstrap Core CSS -->
 	<link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
@@ -246,7 +246,7 @@
 					<!-- Logo Starts -->
 						<div class="col-md-6">
 							<div id="logo">
-								<a href="<?php echo base_url()."home/userhome"?>"><img src="<?php echo base_url();?>images/logo.png" title="Spice Shoppe" alt="Spice Shoppe" class="img-responsive" /></a>
+								<a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo.png" title="Vcartx" alt="Vcartx" class="img-responsive" /></a>
 							</div>
 						</div>
 					<!-- Logo Starts -->

@@ -13,6 +13,7 @@
 							</div>
 						</div>
 					<!-- Wrapper For Slides Ends -->
+
 					<!-- Controls Starts -->
 						<a class="left carousel-control" href="#main-carousel" role="button" data-slide="prev">
 							<span class="glyphicon glyphicon-chevron-left"></span>

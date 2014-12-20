@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Product_model extends CI_Model {
 
-	public function createproduct(){
+	public function createproduct($id,$image){
          $now = date('Y-m-d H:i:s');
-		 $sql = "INSERT INTO products (user_id,product_name,product_category,product_subcategory,unit,mrp_price,selling_price,description,date_time)
+		 $sql = "INSERT INTO products (user_id,product_name,product_category,product_subcategory,unit,mrp_price,selling_price,description,image1,image2,image3,image4,date_time,s_id)
                 VALUES(".$this->db->escape($this->session->userdata('username'))."
                 	    ," . $this->db->escape($this->input->post('product_name')) . "
                     	," . $this->db->escape($this->input->post('product_category')) . "
@@ -12,13 +12,21 @@ class Product_model extends CI_Model {
                     	," . $this->db->escape($this->input->post('mrp_price')) . "
                     	,".$this->db->escape($this->input->post('selling_price'))."
                     	,".$this->db->escape($this->input->post('description'))."
-                        ," . $this->db->escape($now) . ")";
+                         ,".$this->db->escape($image[0])."
+                        ,".$this->db->escape($image[1])."
+                        ,".$this->db->escape($image[2])."
+                        ,".$this->db->escape($image[3])."
+                        ," . $this->db->escape($now) . "
+                        ," . $this->db->escape($id) . ")";
                 return ($this->db->query($sql)>0)?TRUE:FALSE;
 	}
 
 	public function myproducts($id) 
     {
-        $query = $this->db->query("SELECT * FROM products");
+        $this->db->select('*');
+        $this->db->from('products');
+        $this->db->where('s_id',$id);
+        $query=$this->db->get();
         return $query->result();
     }
     public function selectShop($id) 
@@ -44,7 +52,7 @@ public function selectProduct($id)
         $query=$this->db->get();
         return $query->result();
     }
-public function update($id)
+public function update($id,$image)
 {
     $data = array(
         'product_name' => $this->input->post('product_name'),
@@ -53,7 +61,11 @@ public function update($id)
         'unit' => $this->input->post('unit'),
         'mrp_price' => $this->input->post('mrp_price'),
         'selling_price' => $this->input->post('selling_price'),   
-        'description' => $this->input->post('description'),     
+        'description' => $this->input->post('description'),   
+        'image1' => $image[0],
+        'image2' => $image[1],
+        'image3' => $image[2],
+        'image4' => $image[3]  
     );
     $this->db->where('p_id', $id);
     $this->db->update('products', $data); 

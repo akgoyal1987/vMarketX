@@ -10,7 +10,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
-	<title>Spice Shoppe Stores</title>
+	<title>Vcartx Stores</title>
 	
 	<!-- Bootstrap Core CSS -->
 	<link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
@@ -126,6 +126,12 @@
 	  //     });
 	  // }
 	</script>	
+	<script src="<?php echo base_url();?>js/jquery-1.11.1.min.js"></script>
+	<script src="<?php echo base_url();?>js/jquery-migrate-1.2.1.min.js"></script>	
+	<script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+	<script src="<?php echo base_url();?>js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="<?php echo base_url();?>js/jquery.magnific-popup.min.js"></script>
+	<script src="<?php echo base_url();?>js/custom.js"></script>
 </head>
 <body>
 	<!-- Header Section Starts -->
@@ -240,7 +246,7 @@
 					<!-- Logo Starts -->
 						<div class="col-md-6">
 							<div id="logo">
-								<a href="<?php echo base_url()."home/userhome"?>"><img src="<?php echo base_url();?>images/logo.png" title="Spice Shoppe" alt="Spice Shoppe" class="img-responsive" /></a>
+								<a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>images/logo.png" title="Vcartx" alt="Vcartx" class="img-responsive" /></a>
 							</div>
 						</div>
 					<!-- Logo Starts -->
@@ -270,12 +276,10 @@
 									My Products
 								</a>
 								<ul class="dropdown-menu" role="menu">
-									
 									<li><a tabindex="-1" href="<?php echo base_url() . "products/myproducts/".$id; ?>">View My Products</a></li>
-									<li><a tabindex="-1" href="<?php echo base_url();?>products/createproductview">Add New Products</a></li>
+									<li><a tabindex="-1" href="<?php echo base_url() . "products/createproductview/".$id; ?>">Add New Products</a></li>
 								</ul>
 							</li>
-							
 						</ul>
 						<a href="<?php echo base_url();?>Shops/myshops" class="back_shop">Back To Shop</a>
 					</div>

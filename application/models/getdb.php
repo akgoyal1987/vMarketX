@@ -32,8 +32,6 @@ public function getSubcategory()
 	$query = $this->db->query("SELECT * FROM sub_categories");
     return $query->result();
 }
-
-
 }
 
 

@@ -54,7 +54,7 @@
 							</div>
 							<div class="panel-body">
 							<!-- Form Starts -->
-								<form class="form-horizontal" role="form" method="post" action="<?php echo base_url();?>Shops/createshop">
+								<form class="form-horizontal" role="form" action="<?php echo base_url();?>Shops/createshop" method="post" enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="inputFname" class="col-sm-3 control-label">Shop Name :</label>
 										<div class="col-sm-6">
@@ -151,25 +151,25 @@
 									</div>
 									<div class="row">
 										<div class="col-md-3 img_container">
-											<input id="image1" type="file" name='image1'/>
-											<img class="form-control" id="target1" alt="Click to Select Image" src="sf.jpg"/>
+											<input id="image1" type="file" name='image1' accept="image/*" onchange="checkFile(this)"/>
+											<img class="form-control" id="target1" alt="Click to Select Image" src="<?php echo base_url();?>images/default.jpeg"/>
 										</div>
 										<div class="col-md-3 img_container">
-											<input id="image2" type="file" name='image2'/>
-											<img class="form-control" id="target2" alt="Click to Select Image" src="sf.jpg"/>
+											<input id="image2" type="file" name='image2' accept="image/*" onchange="checkFile(this)"/>
+											<img class="form-control" id="target2" alt="Click to Select Image" src="<?php echo base_url();?>images/default.jpeg"/>
 										</div>
 										<div class="col-md-3 img_container">
-											<input id="image3" type="file" name='image3'/>
-											<img class="form-control" id="target3" alt="Click to Select Image" src="sf.jpg"/>
+											<input id="image3" type="file" name='image3' accept="image/*" onchange="checkFile(this)"/>
+											<img class="form-control" id="target3" alt="Click to Select Image" src="<?php echo base_url();?>images/default.jpeg"/>
 										</div>
 										<div class="col-md-3 img_container">
-											<input id="image4" type="file" name='image4'/>
-											<img class="form-control" id="target4" alt="Click to Select Image" src="sf.jpg"/>
+											<input id="image4" type="file" name='image4' accept="image/*" onchange="checkFile(this)"/>
+											<img class="form-control" id="target4" alt="Click to Select Image" src="<?php echo base_url();?>images/default.jpeg"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-sm-offset-3 col-sm-6">
-											<input type="submit" class="btn btn-warning">
+											<input type="submit" class="btn btn-warning" id="i_submit">
 										</div>
 									</div>
 								</form>
@@ -184,12 +184,12 @@
 				display: none;
 			}
 			.img_container img{
-				background-color: red;
+				background-color: white;
 				cursor:pointer;
 			}
 		</style>
 		<script>
-			function showImage(src,target) {
+		function showImage(src,target) {
 			  var fr=new FileReader();
 			  // when image is loaded, set the src of the image where you want to display it
 			  fr.onload = function(e) { target.src = this.result; };
@@ -218,6 +218,32 @@
 			  		$(this).parent().children('input').click();
 				});
 			})
+
+        	
+		function checkFile(fieldObj)
+   		{
+        		var FileName  = fieldObj.value;
+        		var FileExt = FileName.substr(FileName.lastIndexOf('.')+1);
+        		var FileSize = fieldObj.files[0].size;
+        		var FileSizeMB = (FileSize/1048576).toFixed(2);
+        if (FileExt=='jpg'|| FileExt=='png' || FileExt=='gif' || FileExt=='jpeg' || FileExt=='JPG'|| FileExt=='PNG' || FileExt=='GIF' || FileExt=='JPEG')
+        {
+        	if(FileSize<1048576)
+        	{
+        	    showImage();
+            }
+        	else
+        	{
+        		alert("Max File Size Should Be 1 MB");
+        		location.reload(true);
+        	}            
+        }
+        else
+        {
+        	   alert("You Can Upload Only jpg,png,gif Images");
+        	   location.reload(true);
+        }
+    }
 		</script>
 	<!-- Main Container Ends -->
 <?php include('footer.php');?>

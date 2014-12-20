@@ -56,14 +56,14 @@
 							<ul>
 								<li>My Company</li>
 								<li>
-									1247 LB Nagar Road, Hyderabad, Telangana - 35
+									Indore, Madhya Pradesh
 								</li>
 								<li>
-									Email: <a href="#">info@demolink.com</a>
+									Email: <a href="#">info@vcartx.com</a>
 								</li>								
 							</ul>
 							<h4 class="lead">
-								Tel: <span>1(234) 567-9842</span>
+								Tel: <span>1234567890</span>
 							</h4>
 						</div>
 					<!-- Contact Us Ends -->
@@ -77,7 +77,7 @@
 				<div class="container">
 				<!-- Starts -->
 					<p class="pull-left">
-						&nbsp; 2014 Spice Shoppe Stores. Bootstrap Layout All Rights Reserved. Designed By <a href="http://sainathchillapuram.com">Sainath Chillapuram</a>
+						&nbsp; 2014 Vcartx Stores.All Rights Reserved. Powered By <a href="#">Garv All Tech Solution, Indore</a>
 					</p>
 				<!-- Ends -->
 				<!-- Payment Gateway Links Starts -->
