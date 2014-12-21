@@ -9,6 +9,14 @@ class Home extends CI_Controller {
 	public function about(){
 		$this->load->view('about');
 	}
+	public function product(){
+		$this->load->model("getdb");
+    	$data['categories']= $this->getdb->getCategory();
+    	$data['subcategories']= $this->getdb->getSubcategory();
+    	$data['latest_products']= $this->getdb->latestProducts();
+    	$data['special_products']= $this->getdb->specialProducts();
+		$this->load->view('product',$data);
+	}
 
     public function contact(){
 		$this->load->view('contact');
@@ -19,6 +27,8 @@ class Home extends CI_Controller {
     	$this->load->model("getdb");
     	$data['categories']= $this->getdb->getCategory();
     	$data['subcategories']= $this->getdb->getSubcategory();
+    	$data['latest_products']= $this->getdb->latestProducts();
+    	$data['special_products']= $this->getdb->specialProducts();
 		$this->load->view('home',$data);
 	}
 

@@ -52,27 +52,29 @@
 			<!-- Products Row Starts -->
 				<div class="row">
 				<!-- Product #1 Starts -->
+				<?php foreach($latest_products as $latest_product){ ?>
 					<div class="col-md-3 col-sm-6">
 						<div class="product-col">
 							<div class="image">
-								<img src="images/product-images/pimg1.jpg" alt="product" class="img-responsive" />
+								<img src="<?php echo base_url()."uploads/products/". $latest_product->image1 ?>" alt="product" class="img-responsive" />
 							</div>
 							<div class="caption">
-								<h4><a href="product.html">Simply Organic Seeds</a></h4>
+								<h4><a href="product.html"><?php echo $latest_product->product_name ?></a></h4>
 								<div class="description">
-									We are so lucky living in such a wonderful time. Our almost unlimited ...
+
+									<?php echo substr($latest_product->description,0,35) ?>
 								</div>
 								<div class="price">
-									<span class="price-new">$199.50</span> 
-									<span class="price-old">$249.50</span>
+									<span class="price-new">Rs.<?php echo $latest_product->selling_price ?></span> 
+									<span class="price-old">Rs.<?php echo $latest_product->mrp_price ?></span>
 								</div>
 								<div class="cart-button button-group">
-									<button type="button" title="Wishlist" class="btn btn-wishlist">
+									<!--<button type="button" title="Wishlist" class="btn btn-wishlist">
 										<i class="fa fa-heart"></i>
 									</button>
 									<button type="button" title="Compare" class="btn btn-compare">
 										<i class="fa fa-bar-chart-o"></i>
-									</button>
+									</button>-->
 									<button type="button" class="btn btn-cart">
 										Add to cart
 										<i class="fa fa-shopping-cart"></i> 
@@ -81,6 +83,7 @@
 							</div>
 						</div>
 					</div>
+					<?php } ?>
 				<!-- Product #1 Ends -->
 				</div>
 			<!-- Products Row Ends -->
@@ -110,29 +113,29 @@
 			<!-- Products Row Starts -->
 				<div class="row">
 				<!-- Product #1 Starts -->
+				<?php foreach($special_products as $special_product){ ?>
 					<div class="col-md-3 col-sm-6">
 						<div class="product-col">
 							<div class="image">
-								<img src="images/product-images/pimg1.jpg" alt="product" class="img-responsive" />
+								<img src="<?php echo base_url()."uploads/products/". $special_product->image1 ?>" alt="product" class="img-responsive" />
 							</div>
 							<div class="caption">
-								<h4>
-									<a href="product-full.html">Simply Organic Seeds</a>
-								</h4>
+								<h4><a href="<?php echo base_url()."home/product" ?>"><?php echo $special_product->product_name ?></a></h4>
 								<div class="description">
-									We are so lucky living in such a wonderful time. Our almost unlimited ...
+
+									<?php echo substr($special_product->description,0,35) ?>
 								</div>
 								<div class="price">
-									<span class="price-new">$199.50</span> 
-									<span class="price-old">$249.50</span>
+									<span class="price-new">Rs.<?php echo $special_product->selling_price ?></span> 
+									<span class="price-old">Rs.<?php echo $special_product->mrp_price ?></span>
 								</div>
 								<div class="cart-button button-group">
-									<button type="button" title="Wishlist" class="btn btn-wishlist">
+									<!--<button type="button" title="Wishlist" class="btn btn-wishlist">
 										<i class="fa fa-heart"></i>
 									</button>
 									<button type="button" title="Compare" class="btn btn-compare">
 										<i class="fa fa-bar-chart-o"></i>
-									</button>
+									</button>-->
 									<button type="button" class="btn btn-cart">
 										Add to cart
 										<i class="fa fa-shopping-cart"></i> 
@@ -141,106 +144,10 @@
 							</div>
 						</div>
 					</div>
+					<?php } ?>
+					
 				<!-- Product #1 Ends -->
-				<!-- Product #2 Starts -->
-					<div class="col-md-3 col-sm-6">
-						<div class="product-col">
-							<div class="image">
-								<img src="images/product-images/pimg1.jpg" alt="product" class="img-responsive" />
-							</div>
-							<div class="caption">
-								<h4>
-									<a href="product-full.html">Simply Organic Seeds</a>
-								</h4>
-								<div class="description">
-									We are so lucky living in such a wonderful time. Our almost unlimited ...
-								</div>
-								<div class="price">
-									<span class="price-new">$199.50</span> 
-									<span class="price-old">$249.50</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" title="Wishlist" class="btn btn-wishlist">
-										<i class="fa fa-heart"></i>
-									</button>
-									<button type="button" title="Compare" class="btn btn-compare">
-										<i class="fa fa-bar-chart-o"></i>
-									</button>
-									<button type="button" class="btn btn-cart">
-										Add to cart
-										<i class="fa fa-shopping-cart"></i> 
-									</button>									
-								</div>
-							</div>
-						</div>
-					</div>
-				<!-- Product #2 Ends -->
-				<!-- Product #3 Starts -->
-					<div class="col-md-3 col-sm-6">
-						<div class="product-col">
-							<div class="image">
-								<img src="images/product-images/pimg1.jpg" alt="product" class="img-responsive" />
-							</div>
-							<div class="caption">
-								<h4>
-									<a href="product-full.html">Simply Organic Seeds</a>
-								</h4>
-								<div class="description">
-									We are so lucky living in such a wonderful time. Our almost unlimited ...
-								</div>
-								<div class="price">
-									<span class="price-new">$199.50</span> 
-									<span class="price-old">$249.50</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" title="Wishlist" class="btn btn-wishlist">
-										<i class="fa fa-heart"></i>
-									</button>
-									<button type="button" title="Compare" class="btn btn-compare">
-										<i class="fa fa-bar-chart-o"></i>
-									</button>
-									<button type="button" class="btn btn-cart">
-										Add to cart
-										<i class="fa fa-shopping-cart"></i> 
-									</button>									
-								</div>
-							</div>
-						</div>
-					</div>
-				<!-- Product #3 Ends -->
-				<!-- Product #4 Starts -->
-					<div class="col-md-3 col-sm-6">
-						<div class="product-col">
-							<div class="image">
-								<img src="images/product-images/pimg1.jpg" alt="product" class="img-responsive" />
-							</div>
-							<div class="caption">
-								<h4>
-									<a href="product-full.html">Simply Organic Seeds</a>
-								</h4>
-								<div class="description">
-									We are so lucky living in such a wonderful time. Our almost unlimited ...
-								</div>
-								<div class="price">
-									<span class="price-new">$199.50</span> 
-									<span class="price-old">$249.50</span>
-								</div>
-								<div class="cart-button button-group">
-									<button type="button" title="Wishlist" class="btn btn-wishlist">
-										<i class="fa fa-heart"></i>
-									</button>
-									<button type="button" title="Compare" class="btn btn-compare">
-										<i class="fa fa-bar-chart-o"></i>
-									</button>
-									<button type="button" class="btn btn-cart">
-										Add to cart
-										<i class="fa fa-shopping-cart"></i> 
-									</button>									
-								</div>
-							</div>
-						</div>
-					</div>
-				<!-- Product #4 Ends -->
+				
 				</div>
 			<!-- Products Row Ends -->
 			</div>

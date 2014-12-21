@@ -32,6 +32,16 @@ public function getSubcategory()
 	$query = $this->db->query("SELECT * FROM sub_categories");
     return $query->result();
 }
+
+public function latestProducts(){
+	$query = $this->db->query("SELECT * FROM products ORDER BY p_id DESC LIMIT 4");
+    return $query->result();
+}
+
+public function specialProducts(){
+	$query = $this->db->query("SELECT * FROM products LIMIT 4");
+    return $query->result();
+}
 }
 
 

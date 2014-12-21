@@ -436,6 +436,7 @@ hr{
 				}
 			.product-col .cart-button{
 				padding-top:10px;
+				padding-left: 100px;
 			}
 				.product-col .cart-button .btn{
 					-webkit-border-radius:0;

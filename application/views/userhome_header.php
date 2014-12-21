@@ -151,14 +151,14 @@
 											</span>
 										</a>
 									</li>
-									<li>
+									<!--<li>
 										<a href="#">	
 											<i class="fa fa-heart" title="Wish List"></i>
 											<span class="hidden-sm hidden-xs">
 												Wish List(0)
 											</span>
 										</a>
-									</li>
+									</li>-->
 									<li>
 										<a href="#">
 											<i class="fa fa-user" title="My Account"></i>
