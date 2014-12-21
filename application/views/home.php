@@ -56,13 +56,13 @@
 					<div class="col-md-3 col-sm-6">
 						<div class="product-col">
 							<div class="image">
-								<img src="<?php echo base_url()."uploads/products/". $latest_product->image1 ?>" alt="product" class="img-responsive" />
+								<a href="<?php echo base_url()."home/product" ?>"><img src="<?php echo base_url()."uploads/products/". $latest_product->image1 ?>" alt="product" class="img-responsive" /></a>
 							</div>
 							<div class="caption">
-								<h4><a href="product.html"><?php echo $latest_product->product_name ?></a></h4>
+								<h4><a href="<?php echo base_url()."home/product" ?>"><?php echo $latest_product->product_name ?></a></h4>
 								<div class="description">
 
-									<?php echo substr($latest_product->description,0,35) ?>
+									<?php echo substr($latest_product->description,0,31) ?>....
 								</div>
 								<div class="price">
 									<span class="price-new">Rs.<?php echo $latest_product->selling_price ?></span> 
@@ -117,13 +117,13 @@
 					<div class="col-md-3 col-sm-6">
 						<div class="product-col">
 							<div class="image">
-								<img src="<?php echo base_url()."uploads/products/". $special_product->image1 ?>" alt="product" class="img-responsive" />
+								<a href="<?php echo base_url()."home/product" ?>"><img src="<?php echo base_url()."uploads/products/". $special_product->image1 ?>" alt="product" class="img-responsive" /></a>
 							</div>
 							<div class="caption">
 								<h4><a href="<?php echo base_url()."home/product" ?>"><?php echo $special_product->product_name ?></a></h4>
 								<div class="description">
 
-									<?php echo substr($special_product->description,0,35) ?>
+									<?php echo substr($latest_product->description,0,31) ?>....
 								</div>
 								<div class="price">
 									<span class="price-new">Rs.<?php echo $special_product->selling_price ?></span> 
