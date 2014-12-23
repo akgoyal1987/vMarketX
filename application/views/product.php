@@ -43,7 +43,7 @@
 				<div class="col-sm-8 product-details">
 					<div class="panel-smart">
 					<!-- Product Name Starts -->
-						<h2>Simply Organic seeds</h2>
+						<h2></h2>
 					<!-- Product Name Ends -->
 						<hr />
 					<!-- Manufacturer Starts -->
@@ -70,7 +70,7 @@
 						<hr />
 					<!-- Available Options Starts -->
 						<div class="options">
-							<h3>Unit :</h3>
+							<h3>Quantity :</h3>
 							<!--<div class="form-group">
 								<label for="select" class="control-label text-uppercase">Select:</label>
 								<select name="select" id="select" class="form-control">
@@ -109,9 +109,13 @@
 									</label>
 								</div>
 							</div>-->
-							<div class="form-group">
+							<div class="row">
+							<div class="form-group col-md-4">
 								<!--<label class="control-label text-uppercase" for="input-quantity">Qty:</label>-->
-								<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
+			<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
+							</div>
+							<div class="col-md-4">value</div>
+							
 							</div>
 							<div class="cart-button button-group">
 								<!--<button type="button" title="Wishlist" class="btn btn-wishlist">

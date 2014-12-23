@@ -90,10 +90,10 @@
 										<div class="col-sm-6">
 											<select class="form-control" id="inputCountry1" name="unit"  required>
 											<option value="">--Select Unit--</option>
-										<option value="per/kg" <?php if($results[0]->unit=='per/kg') echo "selected"; ?>>Per/kg</option>
-											<option value="per/piece" <?php if($results[0]->unit=='per/piece') echo "selected"; ?>>Per/Piece</option>
-											<option value="per/packet" <?php if($results[0]->unit=='per/packet') echo "selected='selected'"; ?>>Per/Packet</option>
-											<option value="per/bottle" <?php if($results[0]->unit=='per/bottle') echo "selected='selected'"; ?>>Per/Bottle</option>
+										<option value="per/kg" <?php if($results[0]->unit=='kg') echo "selected"; ?>>kg</option>
+											<option value="per/piece" <?php if($results[0]->unit=='piece') echo "selected"; ?>>Piece</option>
+											<option value="per/packet" <?php if($results[0]->unit=='packet') echo "selected='selected'"; ?>>Packet</option>
+											<option value="per/bottle" <?php if($results[0]->unit=='bottle') echo "selected='selected'"; ?>>Bottle</option>
 											
 											</select>
 										</div>

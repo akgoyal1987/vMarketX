@@ -88,10 +88,10 @@
 										<div class="col-sm-6">
 											<select class="form-control" id="inputCountry1" name="unit"  required>
 												<option value="">--Select Unit--</option>
-											<option value="per/kg">Per/Kg</option>
-											<option value="per/piece">Per/Piece</option>
-											<option value="per/packet">Per/Packet</option>
-											<option value="per/bottle">Per/Bottle</option>
+											<option value="per/kg">Kg</option>
+											<option value="per/piece">Piece</option>
+											<option value="per/packet">Packet</option>
+											<option value="per/bottle">Bottle</option>
 											</select>
 										</div>
 									</div>
