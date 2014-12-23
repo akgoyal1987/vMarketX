@@ -368,13 +368,13 @@
 						<ul class="nav navbar-nav">
 						<?php foreach($categories as $category){ ?>
 							<li class="dropdown">
-								<a href="category-list.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">
 								<?php echo $category->name ?>
 								</a>
 								<ul class="dropdown-menu" role="menu">
 								<?php foreach($subcategories as $subcategory){
 									if($subcategory->category==$category->name){?>
-									<li><a tabindex="-1" href="#"><?php echo $subcategory->name ?>
+									<li><a tabindex="-1" href="<?php echo base_url() . "category/categoryGrid/" . $subcategory->id; ?>"><?php echo $subcategory->name ?>
 									</a>
 									</li><?php } ?>
 									<?php } ?>

@@ -22,6 +22,8 @@ class Home extends CI_Controller {
     public function contact(){
 		$this->load->view('contact');
 	}
+
+	
         
     public function showhome(){
     	$this->load->model("getdb");
