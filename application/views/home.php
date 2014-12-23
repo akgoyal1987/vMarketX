@@ -117,10 +117,10 @@
 					<div class="col-md-3 col-sm-6">
 						<div class="product-col">
 							<div class="image">
-								<a href="<?php echo base_url()."home/product" ?>"><img src="<?php echo base_url()."uploads/products/". $special_product->image1 ?>" alt="product" class="img-responsive" /></a>
+								<a href="<?php echo base_url() . "home/product/" . $special_product->p_id; ?>"><img src="<?php echo base_url()."uploads/products/". $special_product->image1 ?>" alt="product" class="img-responsive" /></a>
 							</div>
 							<div class="caption">
-								<h4><a href="<?php echo base_url()."home/product" ?>"><?php echo $special_product->product_name ?></a></h4>
+								<h4><a href="<?php echo base_url() . "home/product/" . $special_product->p_id; ?>"><?php echo $special_product->product_name ?></a></h4>
 								<div class="description">
 
 									<?php echo substr($special_product->description,0,31) ?>....

@@ -42,6 +42,16 @@ public function specialProducts(){
 	$query = $this->db->query("SELECT * FROM products LIMIT 4");
     return $query->result();
 }
+
+public function Product($id){
+	$query = $this->db->query("SELECT * FROM products where p_id =".$id);
+    return $query->result();
+}
+
+public function relatedProducts($id){
+	$query = $this->db->query("select * from products where product_subcategory in (select product_subcategory from products where p_id=".$id.") and p_id !=".$id. " LIMIT 4");
+    return $query->result();
+}
 }
 
 

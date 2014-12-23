@@ -12,28 +12,28 @@
 			<div class="row product-info full">
 			<!-- Left Starts -->
 				<div class="col-sm-4 images-block">
-					<a href="http://localhost/vmarketx/uploads/products/Tulips3.jpg">
-						<img src="http://localhost/vmarketx/uploads/products/Tulips3.jpg" alt="Image" class="img-responsive thumbnail" />
+					<a href="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>">
+						<img src="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>" alt="Image" class="img-responsive thumbnail" />
 					</a>
 					<ul class="list-unstyled list-inline">
 						<li>
-							<a href="images/product-images/big-pimg2.jpg">
-								<img src="http://localhost/vmarketx/uploads/products/Tulips3.jpg" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
+							<a href="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>">
+								<img src="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
 							</a>
 						</li>
 						<li>
-							<a href="images/product-images/big-pimg3.jpg">
-								<img src="http://localhost/vmarketx/uploads/products/Tulips3.jpg" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
+							<a href="<?php echo base_url()."uploads/products/". $product[0]->image2 ?>">
+								<img src="<?php echo base_url()."uploads/products/". $product[0]->image2 ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
 							</a>
 						</li>
 						<li>
-							<a href="images/product-images/big-pimg4.jpg">
-								<img src="http://localhost/vmarketx/uploads/products/Tulips3.jpg" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
+							<a href="<?php echo base_url()."uploads/products/". $product[0]->image3 ?>">
+								<img src="<?php echo base_url()."uploads/products/". $product[0]->image3 ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
 							</a>
 						</li>
 						<li>
-							<a href="images/product-images/big-pimg4.jpg">
-								<img src="http://localhost/vmarketx/uploads/products/Tulips3.jpg" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
+							<a href="<?php echo base_url()."uploads/products/". $product[0]->image4 ?>">
+								<img src="<?php echo base_url()."uploads/products/". $product[0]->image4 ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
 							</a>
 						</li>
 					</ul>
@@ -43,15 +43,26 @@
 				<div class="col-sm-8 product-details">
 					<div class="panel-smart">
 					<!-- Product Name Starts -->
-						<h2></h2>
+						<h2>
+						<?php
+							echo $product[0]->product_name;
+	        		    ?>
+						</h2>
 					<!-- Product Name Ends -->
 						<hr />
 					<!-- Manufacturer Starts -->
 						<ul class="list-unstyled manufacturer">
 							<li>
-								<span>Category:</span> Indian spices
+								<span>Category:</span> 
+								<?php
+							echo $product[0]->product_category;
+	        		          ?>
 							</li>
-							<li><span>Subcategory:</span> SKU012452</li>
+							<li><span>Subcategory:</span> 
+								<?php
+							echo $product[0]->product_subcategory;
+	        		          ?>
+							</li>
 							<!--<li><span>Reward Points:</span> 300</li>
 							<li>
 								<span>Availability:</span> <strong class="label label-danger">Out Of Stock</strong>
@@ -62,8 +73,12 @@
 					<!-- Price Starts -->
 						<div class="price">
 							<span class="price-head">Price :</span>
-							<span class="price-new">$199.50</span> 
-							<span class="price-old">$249.50</span>
+							<span class="price-new">Rs. <?php
+							echo $product[0]->selling_price;
+	        		          ?></span> 
+							<span class="price-old">Rs. <?php
+							echo $product[0]->mrp_price;
+	        		          ?></span>
 							<!--<p class="price-tax">Ex Tax: $279.99</p>-->
 						</div>
 					<!-- Price Ends -->
@@ -112,9 +127,11 @@
 							<div class="row">
 							<div class="form-group col-md-4">
 								<!--<label class="control-label text-uppercase" for="input-quantity">Qty:</label>-->
-			<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
+			<input type="number" name="quantity" value="1" size="2" id="input-quantity" class="form-control" required />
 							</div>
-							<div class="col-md-4">value</div>
+							<div class="col-md-4"><?php
+							echo $product[0]->unit;
+	        		          ?></div>
 							
 							</div>
 							<div class="cart-button button-group">
@@ -155,7 +172,9 @@
 				<!-- Description Starts -->
 					<div class="tab-pane active" id="tab-description">
 						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						<?php
+							echo $product[0]->description;
+	        		          ?>
 						</p>
 						
 					</div>
@@ -251,14 +270,14 @@
 			<!-- Products Row Starts -->
 				<div class="row">
 				<!-- Product #1 Starts -->
-					<?php foreach($latest_products as $latest_product){ ?>
+					<?php foreach($related_products as $latest_product){ ?>
 					<div class="col-md-3 col-sm-6">
 						<div class="product-col">
 							<div class="image">
-								<a href="<?php echo base_url()."home/product" ?>"><img src="<?php echo base_url()."uploads/products/". $latest_product->image1 ?>" alt="product" class="img-responsive" /></a>
+								<a href="<?php echo base_url() . "home/product/" . $latest_product->p_id; ?>"><img src="<?php echo base_url()."uploads/products/". $latest_product->image1 ?>" alt="product" class="img-responsive" /></a>
 							</div>
 							<div class="caption">
-								<h4><a href="<?php echo base_url()."home/product" ?>"><?php echo $latest_product->product_name ?></a></h4>
+								<h4><a href="<?php echo base_url() . "home/product/" . $latest_product->p_id; ?>"><?php echo $latest_product->product_name ?></a></h4>
 								<div class="description">
 
 									<?php echo substr($latest_product->description,0,31) ?>....

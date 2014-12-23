@@ -6,8 +6,7 @@ class Products extends CI_Controller {
 		if($this->checkSession()){
 	        $this->load->model("product_model");
 	        $data['results']=  $this->product_model->selectShop($id);
-	       $data['id']= $id;
-	       
+	        $data['id']= $id;
 			$this->load->view('shop_home',$data);
 		}else{
 			redirect("/");
