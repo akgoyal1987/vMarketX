@@ -9,6 +9,15 @@ body{
 a{
 	color:#ff8b03;
 }
+.product-col img.img-responsive{
+height:231px !important;
+
+}
+
+.product-info ul li img{
+width:77px !important;
+height:74px !important;
+}
 a:hover{
 }
 a:focus{

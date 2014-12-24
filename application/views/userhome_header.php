@@ -276,8 +276,8 @@
 									My Shops
 								</a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a tabindex="-1" href="<?php echo base_url();?>shops/myshops">View My Shops</a></li>
-									<li><a tabindex="-1" href="<?php echo base_url();?>shops/createshopview">Create New Shop</a></li>
+									<li><a tabindex="-1" href="<?php echo base_url();?>Shops/myshops">View My Shops</a></li>
+									<li><a tabindex="-1" href="<?php echo base_url();?>Shops/createshopview">Create New Shop</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">

@@ -2,6 +2,7 @@
 class Shops_model extends CI_Model {
 
 public function createshop($image){
+        date_default_timezone_set("Asia/Kolkata");
         $now = date('Y-m-d H:i:s');
         $sql = "INSERT INTO create_shop (shop_name,shop_category,address,location,city,state,postal_code,phone_no,email,min_ammount,description,user_id,image1,image2,image3,image4,date_time)
                 VALUES(" . $this->db->escape($this->input->post('shop_name')) . "
@@ -43,7 +44,8 @@ public function selectshop($id)
 
 public function delete($id)
 {
-    $this->db->delete('create_shop', array('s_id' => $id)); 
+    $this->db->delete('create_shop', array('s_id' => $id));
+    $this->db->delete('products', array('s_id' => $id));  
     return ($this->db->affected_rows()>0)? TRUE:FALSE;
 }
 public function update($id,$image)

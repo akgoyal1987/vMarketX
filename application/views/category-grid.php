@@ -112,11 +112,11 @@
 			<!-- Primary Content Starts -->
 				<div class="col-md-9">
 				<!-- Breadcrumb Starts -->
-					<ol class="breadcrumb">
+					<!--<ol class="breadcrumb">
 						<li><a href="<?php echo base_url();?>">Home</a></li>
 						<li class=""><?php echo $products[0]->product_category ?></li>
 						<li class="active"><?php echo $products[0]->product_subcategory ?></li>
-					</ol>
+					</ol>-->
 				<!-- Breadcrumb Ends -->
 				
 				<!-- Product Grid Display Starts -->

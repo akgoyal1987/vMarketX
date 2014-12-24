@@ -2,6 +2,7 @@
 class Product_model extends CI_Model {
 
 	public function createproduct($id,$image){
+		 date_default_timezone_set("Asia/Kolkata");
          $now = date('Y-m-d H:i:s');
 		 $sql = "INSERT INTO products (user_id,product_name,product_category,product_subcategory,unit,mrp_price,selling_price,description,image1,image2,image3,image4,date_time,s_id)
                 VALUES(".$this->db->escape($this->session->userdata('username'))."

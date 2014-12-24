@@ -32,8 +32,8 @@ class Products extends CI_Controller {
         $config['upload_path'] = './uploads/products';
 		$config['allowed_types'] = 'jpg|png';
 		$config['max_size']	= '10000';
-		$config['max_width']  = '1024';
-		$config['max_height']  = '768';
+		$config['max_width']  = '10240';
+		$config['max_height']  = '7680';
 		$config['overwrite'] = false;
 		$config['remove_spaces'] = true;
 		$this->load->library('upload');
@@ -132,8 +132,8 @@ class Products extends CI_Controller {
         $config['upload_path'] = './uploads/products';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size']	= '10000';
-		$config['max_width']  = '1024';
-		$config['max_height']  = '768';
+		$config['max_width']  = '10240';
+		$config['max_height']  = '7680';
 		$config['overwrite'] = false;
 		$config['remove_spaces'] = true;
 		$this->load->library('upload');
