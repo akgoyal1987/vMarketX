@@ -4,11 +4,12 @@ class Product_model extends CI_Model {
 	public function createproduct($id,$image){
 		 date_default_timezone_set("Asia/Kolkata");
          $now = date('Y-m-d H:i:s');
-		 $sql = "INSERT INTO products (user_id,product_name,product_category,product_subcategory,unit,mrp_price,selling_price,description,image1,image2,image3,image4,date_time,s_id)
+		 $sql = "INSERT INTO products (user_id,product_name,product_category,product_subcategory,min_quantity,unit,mrp_price,selling_price,description,image1,image2,image3,image4,date_time,s_id)
                 VALUES(".$this->db->escape($this->session->userdata('username'))."
                 	    ," . $this->db->escape($this->input->post('product_name')) . "
                     	," . $this->db->escape($this->input->post('product_category')) . "
                     	," . $this->db->escape($this->input->post('product_subcategory')) . "
+                        ," . $this->db->escape($this->input->post('min_quantity')) . "
                     	," . $this->db->escape($this->input->post('unit')) . "
                     	," . $this->db->escape($this->input->post('mrp_price')) . "
                     	,".$this->db->escape($this->input->post('selling_price'))."
@@ -59,6 +60,7 @@ public function update($id,$image)
         'product_name' => $this->input->post('product_name'),
         'product_category' => $this->input->post('product_category'),
         'product_subcategory' => $this->input->post('product_subcategory'),
+        'min_quantity' => $this->input->post('min_quantity'),
         'unit' => $this->input->post('unit'),
         'mrp_price' => $this->input->post('mrp_price'),
         'selling_price' => $this->input->post('selling_price'),   

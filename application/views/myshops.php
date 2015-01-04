@@ -13,7 +13,7 @@
 			</h2>
 		<!-- Main Heading Ends -->
 		<!-- Shopping Cart Table Starts -->
-			<div class="table-responsive shopping-cart-table">
+			<div class="table-responsive shopping-cart-table" class="pagination pagination-lg">
 				<table class="table table-bordered">
 					<thead>
 						<tr>

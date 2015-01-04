@@ -86,6 +86,13 @@
 										</div>
 									</div>
 									<div class="form-group">
+										<label for="inputAddress1" class="col-sm-3 control-label"> Minimum Quantity :</label>
+										<div class="col-sm-6">
+											<input type="text" value="<?php echo $results[0]->min_quantity ?>" class="form-control" id="inputAddress1" name="min_quantity" placeholder="Minimum Quantity"  pattern="[0-9]{1,5}" title="For Ex. -10 OR 100" required>
+										</div>
+									</div>
+									<div class="form-group">
+									<div class="form-group">
 										<label for="inputCountry" class="col-sm-3 control-label">Unit :</label>
 										<div class="col-sm-6">
 											<select class="form-control" id="inputCountry1" name="unit"  required>
@@ -94,6 +101,9 @@
 											<option value="piece" <?php if($results[0]->unit=='piece') echo "selected"; ?>>Piece</option>
 											<option value="packet" <?php if($results[0]->unit=='packet') echo "selected='selected'"; ?>>Packet</option>
 											<option value="bottle" <?php if($results[0]->unit=='bottle') echo "selected='selected'"; ?>>Bottle</option>
+											<option value="gram" <?php if($results[0]->unit=='gram') echo "selected"; ?>>Gram</option>
+											<option value="leter" <?php if($results[0]->unit=='leter') echo "selected='selected'"; ?>>Leter</option>
+											<option value="meter" <?php if($results[0]->unit=='meter') echo "selected='selected'"; ?>>Meter</option>
 											
 											</select>
 										</div>

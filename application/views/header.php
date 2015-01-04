@@ -126,12 +126,30 @@
 	  //     });
 	  // }
 	</script>	
+	
 	<script src="<?php echo base_url();?>js/jquery-1.11.1.min.js"></script>
 	<script src="<?php echo base_url();?>js/jquery-migrate-1.2.1.min.js"></script>	
 	<script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
 	<script src="<?php echo base_url();?>js/bootstrap-hover-dropdown.min.js"></script>
     <script src="<?php echo base_url();?>js/jquery.magnific-popup.min.js"></script>
 	<script src="<?php echo base_url();?>js/custom.js"></script>
+	<script type="text/javascript">
+		$(function (){
+	 		$(".addToCart1").click(function(){
+				$.ajax({
+	            	type: "POST",
+	            	url: "<?php echo base_url('cart/add_to_cart');?>",
+	            	data: "itemid="+5+"&qry="+1,
+	            	success: function(data){
+	                	alert('Items added');
+	            	},
+	            	error: function(e){
+	                	console.log(e.message);
+	            	}
+	    		});
+			});
+		});
+	</script>
 </head>
 <body>
 	<!-- Header Section Starts -->
@@ -270,71 +288,51 @@
 								<button type="button" data-toggle="dropdown" class="btn btn-block btn-lg dropdown-toggle">
 									<i class="fa fa-shopping-cart"></i>
 									<span class="hidden-md">Cart:</span> 
-									<span id="cart-total">2 item(s) - $340.00</span>
+									<span id="cart-total"><?php echo $this->cart->total_items();?> item(s) - Rs. <?php echo $this->cart->total();?></span>
 									<i class="fa fa-caret-down"></i>
 								</button>
 								<ul class="dropdown-menu pull-right">
 									<li>
 										<table class="table table-striped hcart">
+										
+										<?php foreach ($this->cart->contents() as $items): ?>
 											<tr>
 												<td class="text-center">
-													<a href="product.html">
-														<img src="<?php echo base_url();?>images/product-images/hcart-thumb1.jpg" alt="image" title="image" class="img-thumbnail img-responsive" />
+													<a href="<?php echo base_url("home/product/".$items['id']); ?>">
+														<img src="<?php echo base_url()."uploads/products/". $items['options']['image'] ?>" alt="image" title="image" class="img-thumbnail img-responsive" />
 													</a>
 												</td>
 												<td class="text-left">
-													<a href="product-full.html">
-														Seeds
+													<a href="<?php echo base_url("home/product/".$items['id']);?>">
+														<?php echo $items['name'];?>
 													</a>
 												</td>
-												<td class="text-right">x 1</td>
-												<td class="text-right">$120.68</td>
+												<td class="text-right">x <?php echo $items['qty']; ?></td>
+												<td class="text-right">Rs. <?php echo $items['price']; ?></td>
 												<td class="text-center">
-													<a href="#">
+													<a href="<?php echo base_url("cart/delete_item/".$items['rowid']); ?>">
 														<i class="fa fa-times"></i>
+
 													</a>
 												</td>
 											</tr>
-											<tr>
-												<td class="text-center">
-													<a href="product.html">
-														<img src="<?php echo base_url();?>images/product-images/hcart-thumb2.jpg" alt="image" title="image" class="img-thumbnail img-responsive" />
-													</a>
-												</td>
-												<td class="text-left">
-													<a href="product-full.html">
-														Organic
-													</a>
-												</td>
-												<td class="text-right">x 2</td>
-												<td class="text-right">$240.00</td>
-												<td class="text-center">
-													<a href="#">
-														<i class="fa fa-times"></i>
-													</a>
-												</td>
-											</tr>
+											<?php endforeach;?>
 										</table>
 									</li>
 									<li>
 										<table class="table table-bordered total">
 											<tbody>
+											<?php if($this->cart->total_items()) {?>
 												<tr>
 													<td class="text-right"><strong>Sub-Total</strong></td>
-													<td class="text-left">$1,101.00</td>
+													<td class="text-left">Rs. <?php echo $this->cart->total();?></td>
 												</tr>
+												<?php } else{ ?>
 												<tr>
-													<td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
-													<td class="text-left">$4.00</td>
+													<td class="text-center">Cart is empty</td>
+
 												</tr>
-												<tr>
-													<td class="text-right"><strong>VAT (17.5%)</strong></td>
-													<td class="text-left">$192.68</td>
-												</tr>
-												<tr>
-													<td class="text-right"><strong>Total</strong></td>
-													<td class="text-left">$1,297.68</td>
-												</tr>
+												<?php } ?>
 											</tbody>
 										</table>
 										<p class="text-right btn-block1">

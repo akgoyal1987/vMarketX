@@ -1,4 +1,8 @@
 <?php include('header.php');?>
+<?php 
+error_reporting(0);
+ini_set('display_errors', 0);
+?>
 	<!-- Main Container Starts -->
 		<div id="main-container" class="container">
 			<div class="row">
@@ -112,11 +116,11 @@
 			<!-- Primary Content Starts -->
 				<div class="col-md-9">
 				<!-- Breadcrumb Starts -->
-					<!--<ol class="breadcrumb">
+					<ol class="breadcrumb">
 						<li><a href="<?php echo base_url();?>">Home</a></li>
 						<li class=""><?php echo $products[0]->product_category ?></li>
 						<li class="active"><?php echo $products[0]->product_subcategory ?></li>
-					</ol>-->
+					</ol>
 				<!-- Breadcrumb Ends -->
 				
 				<!-- Product Grid Display Starts -->
@@ -145,7 +149,7 @@
 									<button type="button" title="Compare" class="btn btn-compare">
 										<i class="fa fa-bar-chart-o"></i>
 									</button>-->
-									<button type="button" class="btn btn-cart">
+									<a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id; ?>">	<button type="button" class="btn btn-cart">									
 										Add to cart
 										<i class="fa fa-shopping-cart"></i> 
 									</button>									

@@ -84,6 +84,12 @@
 										</div>
 									</div>
 									<div class="form-group">
+										<label for="inputAddress1" class="col-sm-3 control-label"> Minimum Quantity :</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="inputAddress1" name="min_quantity" placeholder="Minimum Quantity"  pattern="[0-9]{1,5}" title="For Ex. -10 OR 100" required>
+										</div>
+									</div>
+									<div class="form-group">
 										<label for="inputCountry" class="col-sm-3 control-label">Unit :</label>
 										<div class="col-sm-6">
 											<select class="form-control" id="inputCountry1" name="unit"  required>
@@ -92,6 +98,9 @@
 											<option value="piece">Piece</option>
 											<option value="packet">Packet</option>
 											<option value="bottle">Bottle</option>
+											<option value="piece">Gram</option>
+											<option value="packet">Leter</option>
+											<option value="bottle">Meter</option>
 											</select>
 										</div>
 									</div>
