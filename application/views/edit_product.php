@@ -132,19 +132,19 @@
 									<div class="row">
 										<div class="col-md-3 img_container">
 											<input id="image1" type="file" name='image1' accept="image/*" onchange="checkFile(this)"/>
-											<img class="form-control" id="target1" alt="Click to Select Image" src="<?php echo base_url()."uploads/products/". $results[0]->image1 ?>"/>
+											<img class="form-control" id="target1" alt="Click to Select Image" src="<?php if($results[0]->image1){ echo base_url()."uploads/products/". $results[0]->image1; } else { echo base_url()."images/default.jpeg"; } ?>" />
 										</div>
 										<div class="col-md-3 img_container">
 											<input id="image2" type="file" name='image2' accept="image/*" onchange="checkFile(this)"/>
-											<img class="form-control" id="target2" alt="Click to Select Image" src="<?php echo base_url()."uploads/products/". $results[0]->image2 ?>"/>
+											<img class="form-control" id="target2" alt="Click to Select Image" src="<?php if($results[0]->image2){ echo base_url()."uploads/products/". $results[0]->image2; } else { echo base_url()."images/default.jpeg"; } ?>" />
 										</div>
 										<div class="col-md-3 img_container">
 											<input id="image3" type="file" name='image3' accept="image/*" onchange="checkFile(this)"/>
-											<img class="form-control" id="target3" alt="Click to Select Image" src="<?php echo base_url()."uploads/products/". $results[0]->image3 ?>"/>
+											<img class="form-control" id="target3" alt="Click to Select Image" src="<?php if($results[0]->image3){ echo base_url()."uploads/products/". $results[0]->image3; } else { echo base_url()."images/default.jpeg"; } ?>" />
 										</div>
 										<div class="col-md-3 img_container">
 											<input id="image4" type="file" name='image4' accept="image/*" onchange="checkFile(this)"/>
-											<img class="form-control" id="target4" alt="Click to Select Image" src="<?php echo base_url()."uploads/products/". $results[0]->image4 ?>"/>
+											<img class="form-control" id="target4" alt="Click to Select Image" src="<?php if($results[0]->image4){ echo base_url()."uploads/products/". $results[0]->image4; } else { echo base_url()."images/default.jpeg"; } ?>"/>
 										</div>
 									</div>
 									

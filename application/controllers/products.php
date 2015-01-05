@@ -30,35 +30,9 @@ class Products extends CI_Controller {
 
 	public function createproduct($id){
 		if($this->checkSession()){
-        $config['upload_path'] = './uploads/products';
-		$config['allowed_types'] = 'jpg|png';
-		$config['max_size']	= '10000';
-		$config['max_width']  = '10240';
-		$config['max_height']  = '7680';
-		$config['overwrite'] = false;
-		$config['remove_spaces'] = true;
-		$this->load->library('upload');
-		$image = array();
-		$i=0;
-		$upload1 = true;
-		foreach(array_keys($_FILES) as $h) {
-   		$this->upload->initialize($config);
-   		if ($this->upload->do_upload($h)) 
-   		{
-           $arr_file_data  =   $this->upload->data();
-           $image[$i]=$arr_file_data['file_name'];
-        }
-       else
-        {
-   	      $upload1 = true;
-        }
-        $i++;
-        }
-		if ($upload1)
-        {
    			$this->load->model('product_model');
    			$data['id']=$id;
-  		 if($this->product_model->createproduct($id,$image)){
+  		 if($this->product_model->createproduct($id)){
              print "<script>alert('Product Successfully Created');
              window.location.href = '" . base_url() . "products/myproducts/$id';
              </script>";
@@ -69,11 +43,6 @@ class Products extends CI_Controller {
              </script>";
              }
   		}
-  		else
-  		{
-  			echo "error";
-  		}
-        }
 		else{
 		   redirect("/");	
 		}
@@ -130,36 +99,9 @@ class Products extends CI_Controller {
 
 	public function update($id,$p_id){
 		if($this->checkSession()){
-        $config['upload_path'] = './uploads/products';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '10000';
-		$config['max_width']  = '10240';
-		$config['max_height']  = '7680';
-		$config['overwrite'] = false;
-		$config['remove_spaces'] = true;
-		$this->load->library('upload');
-		$image = array();
-		$i=0;
-		$upload1 = true;
-		foreach(array_keys($_FILES) as $h) {
-   		$this->upload->initialize($config);
-   		if ($this->upload->do_upload($h)) 
-   		{
-           $arr_file_data  =   $this->upload->data();
-           $image[$i]=$arr_file_data['file_name'];
-        }
-       else
-        {
-   	      $upload1 = true;
-        }
-        $i++;
-        }
-        
-		if ($upload1)
-        {
    			$this->load->model('product_model');
    			$data['id']=$id;
-  		 if($this->product_model->update($p_id,$image)){
+  		 if($this->product_model->update($p_id)){
             print "<script>
 	        window.location.href = '" . base_url() . "products/myproducts/$id';
              alert('Product Has Been Successfully Updated');
@@ -171,15 +113,9 @@ class Products extends CI_Controller {
              </script>";
              }
   		}
-  		else
-  		{
-  			echo "error";
-  		}
-        }
 		else{
 		   redirect("/");	
 		}
-		
 	}
 
 function checkSession(){

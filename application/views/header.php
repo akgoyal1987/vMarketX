@@ -329,7 +329,7 @@
 												</tr>
 												<?php } else{ ?>
 												<tr>
-													<td class="text-center">Cart is empty</td>
+													<td class="text-center">Cart Is Empty</td>
 
 												</tr>
 												<?php } ?>

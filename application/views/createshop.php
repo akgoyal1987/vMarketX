@@ -235,13 +235,13 @@
         	else
         	{
         		alert("Max File Size Should Be 1 MB");
-        		location.reload(true);
+        		
         	}            
         }
         else
         {
         	   alert("You Can Upload Only jpg,png,gif Images");
-        	   location.reload(true);
+        	   
         }
     }
 		</script>

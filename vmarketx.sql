@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2015 at 03:20 PM
+-- Generation Time: Jan 05, 2015 at 12:32 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -166,6 +166,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `product_name` varchar(255) NOT NULL,
   `product_category` varchar(255) NOT NULL,
   `product_subcategory` varchar(255) NOT NULL,
+  `min_quantity` int(255) NOT NULL,
   `unit` varchar(255) NOT NULL,
   `mrp_price` float NOT NULL,
   `selling_price` float NOT NULL,
@@ -176,14 +177,15 @@ CREATE TABLE IF NOT EXISTS `products` (
   `image4` varchar(255) DEFAULT NULL,
   `date_time` datetime NOT NULL,
   PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=66 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=67 ;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`p_id`, `user_id`, `s_id`, `product_name`, `product_category`, `product_subcategory`, `unit`, `mrp_price`, `selling_price`, `description`, `image1`, `image2`, `image3`, `image4`, `date_time`) VALUES
-(65, 'user', 56, 'salt', 'kirana', 'sugar', 'piece', 333, 200, 'xaxassxas', '97893509479444.jpg', 'Capture4.PNG', 'chili-powder-14.jpg', 'Chilli-powder-0044.jpg', '2014-12-25 00:34:51');
+INSERT INTO `products` (`p_id`, `user_id`, `s_id`, `product_name`, `product_category`, `product_subcategory`, `min_quantity`, `unit`, `mrp_price`, `selling_price`, `description`, `image1`, `image2`, `image3`, `image4`, `date_time`) VALUES
+(65, 'user', 56, 'salt', 'kirana', 'sugar', 1, 'piece', 333, 200, 'xaxassxas', '97893509479444.jpg', 'Capture4.PNG', 'chili-powder-14.jpg', 'Chilli-powder-0044.jpg', '2014-12-25 00:34:51'),
+(66, 'user', 56, 'Masala Papad', 'clothes', 'jackets', 1, 'piece', 120, 40.2, 'dsddsddsds', 'Chrysanthemum.jpg', 'Desert1.jpg', 'Hydrangeas.jpg', 'Jellyfish1.jpg', '2015-01-05 00:19:09');
 
 -- --------------------------------------------------------
 

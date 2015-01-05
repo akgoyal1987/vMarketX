@@ -17,34 +17,8 @@ class Shops extends CI_Controller {
 	
 	public function createshop(){
 		if($this->checkSession()){
-        $config['upload_path'] = './uploads/shops';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '10000';
-		$config['max_width']  = '10240';
-		$config['max_height']  = '7680';
-		$config['overwrite'] = false;
-		$config['remove_spaces'] = true;
-		$this->load->library('upload');
-		$image = array();
-		$i=0;
-		$upload1 = true;
-		foreach(array_keys($_FILES) as $h) {
-   		$this->upload->initialize($config);
-   		if ($this->upload->do_upload($h)) 
-   		{
-           $arr_file_data  =   $this->upload->data();
-           $image[$i]=$arr_file_data['file_name'];
-        }
-       else
-        {
-   	      $upload1 = true;
-        }
-        $i++;
-        }
-		if ($upload1)
-        {
    			$this->load->model('shops_model');
-  		 if($this->shops_model->createshop($image)){
+  		 if($this->shops_model->createshop()){
              print "<script>alert('Shop Successfully Created');
              window.location.href = '" . base_url() . "home/userhome';
              </script>";
@@ -55,11 +29,7 @@ class Shops extends CI_Controller {
              </script>";
              }
   		}
-  		else
-  		{
-  			echo "error";
-  		}
-        }
+        
 		else{
 		   redirect("/");	
 		}
@@ -114,35 +84,8 @@ class Shops extends CI_Controller {
 
 	public function update($id){
 		if($this->checkSession()){
-        $config['upload_path'] = './uploads/shops';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '10000';
-		$config['max_width']  = '10240';
-		$config['max_height']  = '7680';
-		$config['overwrite'] = false;
-		$config['remove_spaces'] = true;
-		$this->load->library('upload');
-		$image = array();
-		$i=0;
-		$upload1 = true;
-		foreach(array_keys($_FILES) as $h) {
-   		$this->upload->initialize($config);
-   		if ($this->upload->do_upload($h)) 
-   		{
-           $arr_file_data  =   $this->upload->data();
-           $image[$i]=$arr_file_data['file_name'];
-        }
-       else
-        {
-   	      $upload1 = true;
-        }
-        $i++;
-        }
-        
-		if ($upload1)
-        {
    			$this->load->model('shops_model');
-  		 if($this->shops_model->update($id,$image)){
+  		 if($this->shops_model->update($id)){
              print "<script>alert('Shop Has Been Successfully Updated');
              window.location.href = '" . base_url() . "Shops/myshops';
              </script>";
@@ -153,11 +96,7 @@ class Shops extends CI_Controller {
              </script>";
              }
   		}
-  		else
-  		{
-  			echo "error";
-  		}
-        }
+  		
 		else{
 		   redirect("/");	
 		}
