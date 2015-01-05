@@ -31,7 +31,7 @@
 			   				    <tr>
 			   				    <td class="text-center">
 								<a href="">
-								<img src="<?php echo base_url()."uploads/products/". $row->image1 ?>" alt="Product Name" title="Product Name" class="img-thumbnail" width=120 height=120/>
+								<img src="<?php if($row->image1){ echo base_url()."uploads/products/". $row->image1; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Product Name" title="Product Name" class="img-thumbnail" width=120 height=120/>
 								</a>
 							</td>
 							<td class="text-center"><?php echo $row->product_name; ?></td>
