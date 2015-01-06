@@ -13,27 +13,27 @@
 			<!-- Left Starts -->
 				<div class="col-sm-4 images-block">
 					<a href="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>">
-						<img src="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>" alt="Image" class="img-responsive thumbnail" />
+						<img src="<?php if($product[0]->image1){ echo base_url()."uploads/products/". $product[0]->image1; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Image" class="img-responsive thumbnail" />
 					</a>
 					<ul class="list-unstyled list-inline">
 						<li>
 							<a href="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>">
-								<img src="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
+								<img src="<?php if($product[0]->image1){ echo base_url()."uploads/products/". $product[0]->image1; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
 							</a>
 						</li>
 						<li>
 							<a href="<?php echo base_url()."uploads/products/". $product[0]->image2 ?>">
-								<img src="<?php echo base_url()."uploads/products/". $product[0]->image2 ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
+								<img src="<?php if($product[0]->image2){ echo base_url()."uploads/products/". $product[0]->image2; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
 							</a>
 						</li>
 						<li>
 							<a href="<?php echo base_url()."uploads/products/". $product[0]->image3 ?>">
-								<img src="<?php echo base_url()."uploads/products/". $product[0]->image3 ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
+								<img src="<?php if($product[0]->image3){ echo base_url()."uploads/products/". $product[0]->image3; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
 							</a>
 						</li>
 						<li>
 							<a href="<?php echo base_url()."uploads/products/". $product[0]->image4 ?>">
-								<img src="<?php echo base_url()."uploads/products/". $product[0]->image4 ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
+								<img src="<?php if($product[0]->image4){ echo base_url()."uploads/products/". $product[0]->image4; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
 							</a>
 						</li>
 					</ul>
@@ -274,7 +274,7 @@
 					<div class="col-md-3 col-sm-6">
 						<div class="product-col">
 							<div class="image">
-								<a href="<?php echo base_url() . "home/product/" . $latest_product->p_id; ?>"><img src="<?php echo base_url()."uploads/products/". $latest_product->image1 ?>" alt="product" class="img-responsive" /></a>
+								<a href="<?php echo base_url() . "home/product/" . $latest_product->p_id; ?>"><img src="<?php if($latest_product->image1){ echo base_url()."uploads/products/". $latest_product->image1; } else { echo base_url()."images/default.jpeg"; } ?>" alt="product" class="img-responsive" /></a>
 							</div>
 							<div class="caption">
 								<h4><a href="<?php echo base_url() . "home/product/" . $latest_product->p_id; ?>"><?php echo $latest_product->product_name ?></a></h4>
