@@ -127,7 +127,8 @@
 							<div class="row">
 							<div class="form-group col-md-4">
 								<!--<label class="control-label text-uppercase" for="input-quantity">Qty:</label>-->
-			<input type="number" name="quantity" value="1" size="2" id="input-quantity" class="form-control" required />
+							<form method="post" action="<?php echo base_url() . "cart/add_to_cart1/" . $product[0]->p_id; ?>">								
+			<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" required />
 							</div>
 							<div class="col-md-4"><?php
 							echo $product[0]->unit;
@@ -141,10 +142,11 @@
 								<button type="button" title="Compare" class="btn btn-compare">
 									<i class="fa fa-bar-chart-o"></i>
 								</button>-->
-								<a href="<?php echo base_url() . "cart/add_to_cart/" . $product[0]->p_id; ?>">	<button type="button" class="btn btn-cart">
+									<button type="submit" class="btn btn-cart">
 									Add to cart
 									<i class="fa fa-shopping-cart"></i> 
-								</button>									
+								</button>	
+								</form>								
 							</div>
 						</div>
 					<!-- Available Options Ends -->
@@ -293,7 +295,7 @@
 									<button type="button" title="Compare" class="btn btn-compare">
 										<i class="fa fa-bar-chart-o"></i>
 									</button>-->
-									<a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id; ?>">	<button type="button" class="btn btn-cart">
+									<a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id."/".$latest_product->min_quantity; ?>">	<button type="button" class="btn btn-cart">
 										Add to cart
 										<i class="fa fa-shopping-cart"></i> 
 									</button>									

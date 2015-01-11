@@ -75,7 +75,7 @@
 									<button type="button" title="Compare" class="btn btn-compare">
 										<i class="fa fa-bar-chart-o"></i>
 									</button>-->
-								<a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id; ?>">	<button type="button" class="btn btn-cart">
+								<a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id."/".$latest_product->min_quantity; ?>">	<button type="button" class="btn btn-cart">
 										Add to cart
 										<i class="fa fa-shopping-cart"></i> 
 									</button></a>									
@@ -136,7 +136,7 @@
 									<button type="button" title="Compare" class="btn btn-compare">
 										<i class="fa fa-bar-chart-o"></i>
 									</button>-->
-									<a href="<?php echo base_url() . "cart/add_to_cart/" . $special_product->p_id; ?>">	<button type="button" class="btn btn-cart">
+									<a href="<?php echo base_url() . "cart/add_to_cart/" . $special_product->p_id."/".$special_product->min_quantity; ?>">	<button type="button" class="btn btn-cart">
 
 										Add to cart
 										<i class="fa fa-shopping-cart"></i> 

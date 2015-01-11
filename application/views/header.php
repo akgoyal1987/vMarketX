@@ -125,7 +125,13 @@
 	  //       // Person is now logged out
 	  //     });
 	  // }
-	</script>	
+	</script>
+	<style type="text/css">
+	#cart_image{
+		width: 80px;
+		height: 40px;
+	}
+	</style>
 	
 	<script src="<?php echo base_url();?>js/jquery-1.11.1.min.js"></script>
 	<script src="<?php echo base_url();?>js/jquery-migrate-1.2.1.min.js"></script>	
@@ -288,7 +294,7 @@
 								<button type="button" data-toggle="dropdown" class="btn btn-block btn-lg dropdown-toggle">
 									<i class="fa fa-shopping-cart"></i>
 									<span class="hidden-md">Cart:</span> 
-									<span id="cart-total"><?php echo $this->cart->total_items();?> item(s) - Rs. <?php echo $this->cart->total();?></span>
+									<span id="cart-total"><?php echo $this->cart->total_items();?> item(s) - Rs. <?php echo number_format((float)$this->cart->total(), 2, '.', ''); ?></span>
 									<i class="fa fa-caret-down"></i>
 								</button>
 								<ul class="dropdown-menu pull-right">
@@ -299,7 +305,9 @@
 											<tr>
 												<td class="text-center">
 													<a href="<?php echo base_url("home/product/".$items['id']); ?>">
-														<img src="<?php echo base_url()."uploads/products/". $items['options']['image'] ?>" alt="image" title="image" class="img-thumbnail img-responsive" />
+														<!--<img src="<?php echo base_url()."uploads/products/". $items['options']['image'] ?>" alt="image" title="image" class="img-thumbnail img-responsive" />-->
+													    <img id="cart_image"  src="<?php if($items['options']['image']){ echo base_url()."uploads/products/". $items['options']['image']; } else { echo base_url()."images/default.jpeg"; } ?>" alt="image" title="image" class="img-thumbnail img-responsive" />
+
 													</a>
 												</td>
 												<td class="text-left">
@@ -307,8 +315,9 @@
 														<?php echo $items['name'];?>
 													</a>
 												</td>
-												<td class="text-right">x <?php echo $items['qty']; ?></td>
-												<td class="text-right">Rs. <?php echo $items['price']; ?></td>
+												<td class="text-right">x <?php echo $items['options']['quantity']; ?> <?php echo $items['options']['unit']; ?></td>
+
+												<td class="text-right">Rs. <?php echo number_format((float)$items['price'], 2, '.', ''); ?></td>
 												<td class="text-center">
 													<a href="<?php echo base_url("cart/delete_item/".$items['rowid']); ?>">
 														<i class="fa fa-times"></i>
@@ -325,7 +334,7 @@
 											<?php if($this->cart->total_items()) {?>
 												<tr>
 													<td class="text-right"><strong>Sub-Total</strong></td>
-													<td class="text-left">Rs. <?php echo $this->cart->total();?></td>
+													<td class="text-left">Rs. <?php echo number_format((float)$this->cart->total(), 2, '.', ''); ?></td>
 												</tr>
 												<?php } else{ ?>
 												<tr>
@@ -336,7 +345,7 @@
 											</tbody>
 										</table>
 										<p class="text-right btn-block1">
-											<a href="cart.html">
+											<a href="<?php echo base_url('cart/view_cart'); ?>">
 												View Cart
 											</a>
 											<a href="#">

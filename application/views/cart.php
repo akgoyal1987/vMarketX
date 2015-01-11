@@ -1,3 +1,10 @@
+<style type="text/css">
+	#cart_image1
+	{
+		width: 120px;
+		height:120px;
+	}
+</style>
 <?php include('header.php');?>
 	<!-- Main Container Starts -->
 		<div id="main-container" class="container">
@@ -27,10 +34,10 @@
 								Quantity
 							</td>
 							<td class="text-center">
-								Price
+								Unit
 							</td>
 							<td class="text-center">
-								Total
+								Price
 							</td>
 							<td class="text-center">
 								Action
@@ -38,74 +45,36 @@
 						</tr>
 					</thead>
 					<tbody>
+					<?php foreach ($this->cart->contents() as $items): ?>
 						<tr>
 							<td class="text-center">
-								<a href="product.html">
-									<img src="images/product-images/cart-thumb-img1.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
+								<a href="<?php echo base_url("home/product/".$items['id']); ?>">
+									<img id="cart_image1" src="<?php if($items['options']['image']){ echo base_url()."uploads/products/". $items['options']['image']; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Product Name" title="Product Name" class="img-thumbnail" />
 								</a>
 							</td>
 							<td class="text-center">
-								<a href="product-full.html">Simply Organic seeds</a>
+								<a href="<?php echo base_url("home/product/".$items['id']);?>"><?php echo $items['name'];?></a>
 							</td>							
 							<td class="text-center">
 								<div class="input-group btn-block">
-									<input type="text" name="quantity" value="1" size="1" class="form-control" />
+									<input type="text" name="quantity" value="<?php echo $items['options']['quantity']; ?>" size="1" class="form-control" />
 								</div>								
 							</td>
 							<td class="text-center">
-								$150.00
+								<?php echo $items['options']['unit']; ?>
 							</td>
 							<td class="text-center">
-								$150.00
+								Rs. <?php echo number_format((float)$items['price'], 2, '.', ''); ?>
 							</td>
 							<td class="text-center">
-								<button type="submit" title="Update" class="btn btn-default tool-tip">
-									<i class="fa fa-refresh"></i>
-								</button>
-								<button type="button" title="Remove" class="btn btn-default tool-tip">
-									<i class="fa fa-times-circle"></i>
+								<a href="<?php echo base_url("cart/delete_item/".$items['rowid']); ?>">
+										<i class="fa fa-times-circle"></i>
+										</a>
 								</button>
 							</td>
 						</tr>
-						<tr>
-							<td class="text-center">
-								<a href="product.html">
-									<img src="images/product-images/cart-thumb-img2.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
-								</a>
-							</td>
-							<td class="text-center">
-								<a href="product-full.html">Simply Organic seeds</a>
-							</td>							
-							<td class="text-center">
-								<div class="input-group btn-block">
-									<input type="text" name="quantity" value="1" size="1" class="form-control" />
-								</div>								
-							</td>
-							<td class="text-center">
-								$150.00
-							</td>
-							<td class="text-center">
-								$150.00
-							</td>
-							<td class="text-center">
-								<button type="submit" title="Update" class="btn btn-default tool-tip">
-									<i class="fa fa-refresh"></i>
-								</button>
-								<button type="button" title="Remove" class="btn btn-default tool-tip">
-									<i class="fa fa-times-circle"></i>
-								</button>
-							</td>
-						</tr>						
-					</tbody>
-					<tfoot>
-						<tr>
-						  <td colspan="4" class="text-right">
-							<strong>Total :</strong>
-						  </td>
-						  <td colspan="2" class="text-left">
-							$300
-						  </td>
-						</tr>
+						<?php endforeach;?>
+						
 					</tfoot>
 				</table>				
 			</div>
@@ -115,8 +84,26 @@
 				<div class="row">
 				<!-- Shipping & Shipment Block Starts -->
 					<div class="col-sm-6">
+					<div class="panel panel-smart">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									Terms &amp; Conditions
+								</h3>
+							</div>
+							<div class="panel-body">
+								<p>
+									HTML Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. 
+								</p>
+								<p>
+									Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. 
+								</p>
+								<p>
+									Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat.
+								</p>								
+							</div>
+							</div>
 					<!-- Taxes Block Starts -->
-						<div class="panel panel-smart">
+						<!--<div class="panel panel-smart">
 							<div class="panel-heading">
 								<h3 class="panel-title">
 									Shipping &amp; Taxes
@@ -124,7 +111,7 @@
 							</div>
 							<div class="panel-body">
 							<!-- Form Starts -->
-								<form class="form-horizontal" role="form">
+								<!--<form class="form-horizontal" role="form">
 									<div class="form-group">
 										<label for="inputCountry" class="col-sm-3 control-label">Country :</label>
 										<div class="col-sm-9">
@@ -159,19 +146,19 @@
 										</div>
 									</div>
 								</form>
-							<!-- Form Ends -->
+							<!-- Form Ends
 							</div>
-						</div>
+						</div>-->
 					<!-- Taxes Block Ends -->
 					<!-- Shipment Information Block Starts -->
-						<div class="panel panel-smart">
+						<!--<div class="panel panel-smart">
 							<div class="panel-heading">
 								<h3 class="panel-title">
 									Shipment Information
 								</h3>
 							</div>
 							<div class="panel-body">
-							<!-- Form Starts -->
+							<!-- Form Starts 
 								<form class="form-horizontal" role="form">
 									<div class="form-group">
 										<label for="inputFname" class="col-sm-3 control-label">First Name :</label>
@@ -249,7 +236,7 @@
 										</div>
 									</div>
 								</form>
-							<!-- Form Ends -->
+							<!-- Form Ends 
 							</div>
 						</div>
 					<!-- Shipment Information Block Ends -->
@@ -257,53 +244,6 @@
 				<!-- Shipping & Shipment Block Ends -->
 				<!-- Discount & Conditions Blocks Starts -->
 					<div class="col-sm-6">
-					<!-- Discount Coupon Block Starts -->
-						<div class="panel panel-smart">
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Discount Coupon Code
-								</h3>
-							</div>
-							<div class="panel-body">
-							<!-- Form Starts -->
-								<form class="form-horizontal" role="form">
-									<div class="form-group">
-										<label for="inputCouponCode" class="col-sm-3 control-label">Coupon Code :</label>
-										<div class="col-sm-9">
-											<input type="text" class="form-control" id="inputCouponCode" placeholder="Coupon Code">
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="col-sm-offset-3 col-sm-9">
-											<button type="submit" class="btn btn-default">
-												Apply Coupon
-											</button>
-										</div>
-									</div>
-								</form>
-							<!-- Form Ends -->
-							</div>
-						</div>
-					<!-- Discount Coupon Block Ends -->
-					<!-- Conditions Panel Starts -->
-						<div class="panel panel-smart">
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									Terms &amp; Conditions
-								</h3>
-							</div>
-							<div class="panel-body">
-								<p>
-									HTML Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. 
-								</p>
-								<p>
-									Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. 
-								</p>
-								<p>
-									Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat.
-								</p>								
-							</div>
-						</div>
 					<!-- Conditions Panel Ends -->
 					<!-- Total Panel Starts -->
 						<div class="panel panel-smart">
