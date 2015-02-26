@@ -63,6 +63,16 @@
 							echo $product[0]->product_subcategory;
 	        		          ?>
 							</li>
+							<li><span>Shop Name:</span> 
+								<?php
+							echo $product[0]->shop_name;
+	        		          ?>
+							</li>
+							<li><span>Min. Quantity :</span> 
+								<?php
+							echo $product[0]->min_quantity;?>&nbsp;&nbsp;<?php echo $product[0]->unit;
+	        		          ?>
+							</li>
 							<!--<li><span>Reward Points:</span> 300</li>
 							<li>
 								<span>Availability:</span> <strong class="label label-danger">Out Of Stock</strong>
@@ -128,7 +138,11 @@
 							<div class="form-group col-md-4">
 								<!--<label class="control-label text-uppercase" for="input-quantity">Qty:</label>-->
 							<form method="post" action="<?php echo base_url() . "cart/add_to_cart1/" . $product[0]->p_id; ?>">								
-			<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" required />
+							<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" required />
+							<input type="hidden" name="min_quantity" value="<?php echo $product[0]->min_quantity; ?>" size="2" id="min_quantity_val" class="form-control"  />
+							<input type="hidden" name="unit" value="<?php echo $product[0]->unit; ?>" size="2" id="unit_val" class="form-control"  />
+
+
 							</div>
 							<div class="col-md-4"><?php
 							echo $product[0]->unit;
@@ -142,7 +156,7 @@
 								<button type="button" title="Compare" class="btn btn-compare">
 									<i class="fa fa-bar-chart-o"></i>
 								</button>-->
-									<button type="submit" class="btn btn-cart">
+									<button type="submit" class="btn btn-cart" id="cart_btn">
 									Add to cart
 									<i class="fa fa-shopping-cart"></i> 
 								</button>	
@@ -311,5 +325,23 @@
 			</div>
 		<!-- Related Products Ends -->
 		</div>
+		<script>
+		$(document).ready(function(){
+			$('#cart_btn').click(function(){
+			var input_quan = parseInt($('#input-quantity').val());
+			var min_quan = parseInt($('#min_quantity_val').val());
+			var unit = $('#unit_val').val();
+			if(input_quan >= min_quan)
+			{
+				return true;
+			}
+			else
+			{
+				alert("You Have To Select Minimum"+min_quan+" "+unit);
+				document.getElementById("input-quantity").value = "";
+			}
+			});
+		});
+		</script>
 	<!-- Main Container Ends -->
 	<?php include('footer.php');?>

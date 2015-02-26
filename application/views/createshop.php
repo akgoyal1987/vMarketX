@@ -235,6 +235,7 @@
         	else
         	{
         		alert("Max File Size Should Be 1 MB");
+        		//document.getElementById("image1").value = "";
         		
         	}            
         }
@@ -244,6 +245,8 @@
         	   
         }
     }
+
 		</script>
+    }
 	<!-- Main Container Ends -->
 <?php include('footer.php');?>

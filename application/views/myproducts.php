@@ -13,8 +13,8 @@
 			</h2>
 		<!-- Main Heading Ends -->
 		<!-- Shopping Cart Table Starts -->
-			<div class="table-responsive shopping-cart-table">
-				<table class="table table-bordered">
+			<div class="table-responsive shopping-cart-table" class="pagination pagination-lg">
+				<table class="table table-bordered" id="table_data1">
 					<thead>
 						<tr>
 							<td class="text-center">Logo</td>
@@ -66,5 +66,15 @@
 		<!-- Shopping Cart Table Ends -->
 		
 		</div>
+		<script>
+          $(document).ready(function() {
+		  $('#table_data1').dataTable({
+    "bPaginate": true,
+    "bLengthChange": false,
+    "bFilter": true,
+    "bInfo": true,
+    "bAutoWidth": false });
+});
+</script>
 	<!-- Main Container Ends -->
 <?php include('footer.php');?>

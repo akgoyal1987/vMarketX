@@ -89,6 +89,33 @@ class Product_model extends CI_Model {
     return ($this->db->affected_rows()>0)? TRUE:FALSE;
 }
 
+public function fetch_price_data($min_value1,$max_value1,$sc_name1)
+{
+        $this->db->select('*');
+        $this->db->from('products');
+        $this->db->where('selling_price >=', $min_value1);
+        $this->db->where('selling_price <=', $max_value1);
+        $this->db->where('product_subcategory',$sc_name1);
+        $query=$this->db->get();
+        return $query->result();
+}
+
+public function fetch_lcn_data($loc_val,$sc_name_lcn)
+{
+    $a = ltrim($loc_val,"',");
+    $b = rtrim($a,"'");
+    $query = $this->db->query("SELECT * FROM `products` as p inner join create_shop as cs on cs.s_id = p.s_id WHERE cs.location  IN ('$b') AND p.product_subcategory = '$sc_name_lcn' ");
+    return $query->result();
+}
+
+public function max_price_data($sc_name1)
+{
+    $this->db->select_max('selling_price');
+    $this->db->where('product_subcategory',$sc_name1);
+    $query = $this->db->get('products');
+    return $query->result();
+}
+
 public function selectProduct($id) 
     {
         $this->db->select('*');

@@ -44,7 +44,7 @@ public function specialProducts(){
 }
 
 public function Product($id){
-	$query = $this->db->query("SELECT * FROM products where p_id =".$id);
+	$query = $this->db->query("SELECT * FROM products inner join create_shop on create_shop.s_id = products.s_id where p_id =".$id);
     return $query->result();
 }
 

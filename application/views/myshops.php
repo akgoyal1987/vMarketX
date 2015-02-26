@@ -11,10 +11,11 @@
 			<h2 class="main-heading text-center">
 				My Shops
 			</h2>
+		
 		<!-- Main Heading Ends -->
 		<!-- Shopping Cart Table Starts -->
 			<div class="table-responsive shopping-cart-table" class="pagination pagination-lg">
-				<table class="table table-bordered">
+				<table class="table table-bordered" id="table_data">
 					<thead>
 						<tr>
 							<td class="text-center">Logo</td>
@@ -38,7 +39,7 @@
 							<td class="text-center"><?php echo $row->shop_category; ?></td>
 							<td class="text-center"><?php echo $row->email; ?></td>
 							<td class='text-center'>
-							<a title='Update' class='btn btn-default tool-tip' href="<?php echo base_url() . "Shops/selectShop/" . $row->s_id; ?>">
+							<a title='Update' id="edit_shop" class='btn btn-default tool-tip' href="<?php echo base_url() . "Shops/selectShop/" . $row->s_id; ?>">
 							
 						    <i class='fa fa-edit'>
 						    </i>
@@ -67,6 +68,17 @@
 		<!-- Shopping Cart Table Ends -->
 		
 		</div>
-	
+		<script>
+          $(document).ready(function() {
+		  $('#table_data').dataTable({
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": true,
+		    "bInfo": true,
+		    "bAutoWidth": false });
+		});
+</script>
 	<!-- Main Container Ends -->
 <?php include('footer.php');?>
+
+

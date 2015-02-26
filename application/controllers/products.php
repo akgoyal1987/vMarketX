@@ -118,6 +118,27 @@ class Products extends CI_Controller {
 		}
 	}
 
+	public function price_filter()
+	{
+		$this->load->model('product_model');
+		$this->load->model("getdb");
+		$min_value1 = $_POST["min_value"];
+		$max_value1 = $_POST["max_value"];
+		$sc_name1 = $_POST["sc_name"];
+		$data['products'] = $this->product_model->fetch_price_data($min_value1,$max_value1,$sc_name1);
+	    $this->load->view('price_filter_view',$data);
+	}
+
+	public function location_filter()
+	{
+		$this->load->model('product_model');
+		$this->load->model("getdb");
+		$loc_val = $_POST["val"];
+		$sc_name_lcn = $_POST["sc_name"];
+		$data['products'] = $this->product_model->fetch_lcn_data($loc_val,$sc_name_lcn);
+	    $this->load->view('price_filter_view',$data);
+	}
+
 function checkSession(){
 		if($this->session->userdata('isLoggedIn')){
 			return true;

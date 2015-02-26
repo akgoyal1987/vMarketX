@@ -8,6 +8,8 @@ class Category extends CI_Controller {
     	$data['categories']= $this->getdb->getCategory();
     	$data['subcategories']= $this->getdb->getSubcategory();
     	$data['products'] = $this->category_model->productsbyCategory($id);
+    	$data['max_price_sc'] = $this->category_model->maxpricebysc($id);
+    	$data['locations'] = $this->category_model->get_locations($id);
 		$this->load->view('category-grid',$data);
 	}
 

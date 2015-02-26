@@ -920,6 +920,14 @@ hr{
 /* Sidebar Styles Stars */
 
 	.side-heading{
+		margin-top:20px;
+		padding:12px 20px;
+		font-size:18px;
+		text-transform:uppercase;
+		color:#ffb400;
+		background:#252a2f;
+	}
+	.side-heading1{
 		margin-top:0;
 		padding:12px 20px;
 		font-size:18px;

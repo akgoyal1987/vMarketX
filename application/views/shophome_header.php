@@ -13,7 +13,18 @@
 	<title>Vcartx Stores</title>
 	
 	<!-- Bootstrap Core CSS -->
-	<link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/dataTables.bootstrap.css">
+    <script src="<?php echo base_url();?>js/jquery-1.10.2.js"></script>
+    <script src="<?php echo base_url();?>js/jquery-ui.js"></script>
+    <script src="<?php echo base_url();?>js/bootstrap.js"></script>
+    <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>js/jquery.js"></script>
+    <script src="<?php echo base_url();?>js/jquery.dataTables.js"></script>
+    <script src="<?php echo base_url();?>js/dataTables.bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/bootstrap.min.css">
+    <script src="<?php echo base_url();?>js/jquery.dataTables.min.js"></script>
 	
 	<!-- Google Web Fonts -->
 	<link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700" rel="stylesheet" type="text/css">
@@ -126,9 +137,8 @@
 	  //     });
 	  // }
 	</script>	
-	<script src="<?php echo base_url();?>js/jquery-1.11.1.min.js"></script>
-	<script src="<?php echo base_url();?>js/jquery-migrate-1.2.1.min.js"></script>	
-	<script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+	<!--<script src="<?php echo base_url();?>js/jquery-1.11.1.min.js"></script>-->
+	<script src="<?php echo base_url();?>js/jquery-migrate-1.2.1.min.js"></script>
 	<script src="<?php echo base_url();?>js/bootstrap-hover-dropdown.min.js"></script>
     <script src="<?php echo base_url();?>js/jquery.magnific-popup.min.js"></script>
 	<script src="<?php echo base_url();?>js/custom.js"></script>
@@ -270,7 +280,7 @@
 				<!-- Nav Header Ends -->
 				<!-- Navbar Cat collapse Starts -->
 					<div class="collapse navbar-collapse navbar-cat-collapse">
-						<ul class="nav navbar-nav">
+					<ul class="nav navbar-nav">
 							<li class="dropdown">
 								<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">
 									My Products
@@ -288,5 +298,5 @@
 			<!-- Main Menu Ends -->
 			</div>
 		<!-- Ends -->
-		</header>
+				</header>
 	<!-- Header Section Ends -->
