@@ -4,6 +4,7 @@ class Cart extends CI_Controller {
 	
 	public function add_to_cart($id,$quantity){
 		$this->load->model("getdb");
+		$this->load->model('shops_model');
 		$ins=TRUE;
     	$product1= $this->getdb->Product($id);
     	$price1 = $quantity/$product1[0]->min_quantity;
@@ -29,7 +30,11 @@ class Cart extends CI_Controller {
             );
 		$this->cart->insert($data);
 		}
-		redirect("");
+		$data['shops_id_data']= $this->shops_model->getshopiddata($id);
+		$a = end(end($data['shops_id_data']));
+		$data['shops_data']= $this->shops_model->getshopdata($a);
+		$this->session->set_userdata($data['shops_data']);
+	    redirect('Shops/shop_page/'.$a);
 	}
 
 	public function empty_cart(){
@@ -69,6 +74,9 @@ class Cart extends CI_Controller {
 	    $data['subcategories']= $this->getdb->getSubcategory();
 		$this->load->view('cart',$data);
 	}
+
+
+
 
 	
 	

@@ -278,7 +278,7 @@
 						<div class="col-md-3">
 							<div id="search">
 								<div class="input-group">
-								  <input type="text" class="form-control input-lg" placeholder="Search">
+								  <input type="text" id="search_id" class="form-control input-lg" placeholder="Search">
 								  <span class="input-group-btn">
 									<button class="btn btn-lg" type="button">
 										<i class="fa fa-search"></i>
@@ -395,5 +395,35 @@
 			<!-- Main Menu Ends -->
 			</div>
 		<!-- Ends -->
+
 		</header>
+
 	<!-- Header Section Ends -->
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#search_id').keydown(function (e){
+          if(e.keyCode == 13)
+          {
+ 	       var val = $('#search_id').val();
+ 	       	if(val == "")
+ 	       	{
+ 	       		return false;
+ 	       	}
+ 	       $.ajax({
+            url:"<?php echo base_url() ?>index.php/products/search_bar",
+            type:"POST",
+            data:"val="+val,
+            success: function(response){
+           	 $("#product_box").html(response);
+           	 // alert(response);
+            },
+            error: function(data)
+			{
+				alert(data);
+			} 
+            });
+          }
+      });
+   
+	});
+	</script>

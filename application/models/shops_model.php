@@ -85,6 +85,24 @@ public function selectshop($id)
         return $query->result();
     }
 
+public function getshopdata($a) 
+    {
+        $this->db->select('*');
+        $this->db->from('products');
+        $this->db->where('s_id',$a);
+        $query=$this->db->get();
+        return $query->result();
+    }
+
+public function getshopiddata($id) 
+    {
+        $this->db->select('s_id');
+        $this->db->from('products');
+        $this->db->where('p_id',$id);
+        $query=$this->db->get();
+        return $query->result();
+    }
+
 public function delete($id)
 {
     $this->db->delete('create_shop', array('s_id' => $id));

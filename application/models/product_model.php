@@ -63,6 +63,7 @@ class Product_model extends CI_Model {
                         ,".$this->db->escape($f_newfile3)."
                         ," . $this->db->escape($now) . "
                         ," . $this->db->escape($id) . ")";
+
                 return ($this->db->query($sql)>0)?TRUE:FALSE;
 	}
 
@@ -105,6 +106,12 @@ public function fetch_lcn_data($loc_val,$sc_name_lcn)
     $a = ltrim($loc_val,"',");
     $b = rtrim($a,"'");
     $query = $this->db->query("SELECT * FROM `products` as p inner join create_shop as cs on cs.s_id = p.s_id WHERE cs.location  IN ('$b') AND p.product_subcategory = '$sc_name_lcn' ");
+    return $query->result();
+}
+
+public function get_search_data($search_val)
+{
+    $query = $this->db->query(" SELECT * FROM `products` WHERE `product_name` Like '%$search_val%' ");
     return $query->result();
 }
 

@@ -139,6 +139,16 @@ class Products extends CI_Controller {
 	    $this->load->view('price_filter_view',$data);
 	}
 
+	public function search_bar()
+	{
+		$this->load->model('product_model');
+		$this->load->model("getdb");
+		$search_val = $_POST["val"];
+		// var_dump($search_val);die;
+		$data['products'] = $this->product_model->get_search_data($search_val);
+	    $this->load->view('price_filter_view',$data);
+	}
+
 function checkSession(){
 		if($this->session->userdata('isLoggedIn')){
 			return true;
