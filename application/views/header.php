@@ -281,7 +281,7 @@
 								  <input type="text" id="search_id" class="form-control input-lg" placeholder="Search">
 								  <span class="input-group-btn">
 									<button class="btn btn-lg" type="button">
-										<i class="fa fa-search"></i>
+										<!-- <i class="fa fa-search"></i> -->
 									</button>
 								  </span>
 								</div>
@@ -414,7 +414,8 @@
             type:"POST",
             data:"val="+val,
             success: function(response){
-           	 $("#product_box").html(response);
+           	  $("#product_search").html(response);
+           	 // window.location.href = "http://localhost/vmarketx/category/categoryGrid/22";
            	 // alert(response);
             },
             error: function(data)

@@ -28,14 +28,39 @@ class Cart extends CI_Controller {
                'name'    => $product1[0]->product_name,
                'options' => array('image' =>$product1[0]->image1, 'unit' => $product1[0]->unit, 'quantity' => $quantity)
             );
-		$this->cart->insert($data);
+		 // get shop id using $id
+		 $data['shops_id_data']= $this->shops_model->getshopiddata($id);
+		 $a = end(end($data['shops_id_data']));
+		
+		 if(!empty($this->cart->contents()))
+		  {
+		  	foreach ($this->cart->contents() as $item) {
+			$parent_cat_data[] = $item['shops_id_data'];
+			foreach($item['shops_id_data'] as $data_arr)
+		 {
+		 	$p_id[] = $data_arr->s_id;
 		}
-		$data['shops_id_data']= $this->shops_model->getshopiddata($id);
-		$a = end(end($data['shops_id_data']));
-		$data['shops_data']= $this->shops_model->getshopdata($a);
-		$this->session->set_userdata($data['shops_data']);
-	    redirect('Shops/shop_page/'.$a);
-	}
+		}
+		if(in_array($a, $p_id))
+			{
+				 $this->cart->insert($data);
+				 redirect('Shops/shop_page/'.$a);
+			}
+		else
+			{
+			 print "<script>alert('This  product is different shops, To Add This Product First You Have To Empty The Cart');
+             </script>";
+			 return false;
+			}
+		  }
+		 else
+		  {
+		  	    $this->cart->insert($data);
+				redirect('Shops/shop_page/'.$a);
+		  }
+		}
+		}
+	
 
 	public function empty_cart(){
 

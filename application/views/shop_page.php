@@ -1,8 +1,6 @@
 <?php echo "<pre>";
- $a['result'] = $this->session->all_userdata();
 
- // print_r($a['result'][1]->p_id);
- print_r($a);die;
+die;
 
  ?>
 <?php include('header.php');?>

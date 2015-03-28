@@ -50,7 +50,7 @@
 				<h2 class="product-head">Latest Products</h2>
 			<!-- Heading Ends -->
 			<!-- Products Row Starts -->
-				<div class="row">
+				<div class="row" id="product_search">
 				<!-- Product #1 Starts -->
 				<?php foreach($latest_products as $latest_product){ ?>
 					<div class="col-md-3 col-sm-6">

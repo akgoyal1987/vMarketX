@@ -163,5 +163,33 @@ change: function(event, ui) {
 	});
 	});
 </script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#search_id').keydown(function (e){
+          if(e.keyCode == 13)
+          {
+ 	       var val = $('#search_id').val();
+ 	       	if(val == "")
+ 	       	{
+ 	       		return false;
+ 	       	}
+ 	       $.ajax({
+            url:"<?php echo base_url() ?>index.php/products/search_bar",
+            type:"POST",
+            data:"val="+val,
+            success: function(response){
+           	 $("#product_box").html(response);
+           	 // alert(response);
+            },
+            error: function(data)
+			{
+				alert(data);
+			} 
+            });
+          }
+      });
+   
+	});
+	</script>
 	<!-- Main Container Ends -->
 <?php include('footer.php');?>
