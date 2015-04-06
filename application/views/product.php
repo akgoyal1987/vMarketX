@@ -9,32 +9,43 @@
 			</ol>-->
 		<!-- Breadcrumb Ends -->
 		<!-- Product Info Starts -->
+
 			<div class="row product-info full">
 			<!-- Left Starts -->
 				<div class="col-sm-4 images-block">
-					<a href="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>">
-						<img src="<?php if($product[0]->image1){ echo base_url()."uploads/products/". $product[0]->image1; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Image" class="img-responsive thumbnail" />
-					</a>
+					<!-- <a href="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>"> -->
+					<span class='zoom' id='ex0'>
+						<img src="<?php if($product[0]->image1){ echo base_url()."uploads/products/". $product[0]->image1; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Image" id="p_image1" class="img-responsive thumbnail" />
+						</span>
+					<!-- </a> -->
 					<ul class="list-unstyled list-inline">
 						<li>
-							<a href="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>">
+							<!-- <a href="<?php echo base_url()."uploads/products/". $product[0]->image1 ?>"> -->
+							<span class='zoom' id='ex1'>
 								<img src="<?php if($product[0]->image1){ echo base_url()."uploads/products/". $product[0]->image1; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
-							</a>
+								</span>
+							<!-- </a> -->
 						</li>
 						<li>
-							<a href="<?php echo base_url()."uploads/products/". $product[0]->image2 ?>">
+							<!-- <a href="<?php echo base_url()."uploads/products/". $product[0]->image2 ?>"> -->
+							<span class='zoom' id='ex2'>
 								<img src="<?php if($product[0]->image2){ echo base_url()."uploads/products/". $product[0]->image2; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
-							</a>
+								</span>
+							<!-- </a> -->
 						</li>
 						<li>
-							<a href="<?php echo base_url()."uploads/products/". $product[0]->image3 ?>">
+							<!-- <a href="<?php echo base_url()."uploads/products/". $product[0]->image3 ?>"> -->
+							<span class='zoom' id='ex3'>
 								<img src="<?php if($product[0]->image3){ echo base_url()."uploads/products/". $product[0]->image3; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
-							</a>
+								</span>
+							<!-- </a> -->
 						</li>
 						<li>
-							<a href="<?php echo base_url()."uploads/products/". $product[0]->image4 ?>">
+							<!-- <a href="<?php echo base_url()."uploads/products/". $product[0]->image4 ?>"> -->
+							<span class='zoom' id='ex4'>
 								<img src="<?php if($product[0]->image4){ echo base_url()."uploads/products/". $product[0]->image4; } else { echo base_url()."images/default.jpeg"; } ?>" alt="Image" width=75 height= 75 class="img-responsive thumbnail" />
-							</a>
+								</span>
+							<!-- </a> -->
 						</li>
 					</ul>
 				</div>
@@ -342,6 +353,15 @@
 			}
 			});
 		});
+		</script>
+
+		<script>
+		$(document).ready(function(){
+			$('ul li span img').click(function(){
+			var img_id = $(this).attr('src');
+			$("#p_image1").attr("src",img_id);
+			});
+		    });
 		</script>
 	<!-- Main Container Ends -->
 	<?php include('footer.php');?>

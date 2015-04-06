@@ -17,6 +17,7 @@ class Home extends CI_Controller {
     	$data['product']= $this->getdb->Product($id);
         $data['related_products']= $this->getdb->relatedProducts($id);
 		$this->load->view('product',$data);
+
 	}
 
     public function contact(){

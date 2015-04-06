@@ -1,5 +1,6 @@
 <?php echo "<pre>";
-
+// $session_id = $this->session->all_userdata($data1['results1']);
+// print_r($session_id);
 die;
 
  ?>

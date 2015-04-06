@@ -31,7 +31,8 @@ class Cart extends CI_Controller {
 		 // get shop id using $id
 		 $data['shops_id_data']= $this->shops_model->getshopiddata($id);
 		 $a = end(end($data['shops_id_data']));
-		
+		 $data1['results1'] = $this->shops_model->getshopdata($a);
+		 $this->session->set_userdata($data1['results1']);
 		 if(!empty($this->cart->contents()))
 		  {
 		  	foreach ($this->cart->contents() as $item) {
@@ -45,10 +46,12 @@ class Cart extends CI_Controller {
 			{
 				 $this->cart->insert($data);
 				 redirect('Shops/shop_page/'.$a);
+				 // redirect('/');
 			}
 		else
 			{
-			 print "<script>alert('This  product is different shops, To Add This Product First You Have To Empty The Cart');
+			 print "<script>alert('This  product is Different Shop, To Add This Product First You Have To Empty The Cart');
+			 window.location.href = '" . base_url() . "';
              </script>";
 			 return false;
 			}
@@ -57,6 +60,7 @@ class Cart extends CI_Controller {
 		  {
 		  	    $this->cart->insert($data);
 				redirect('Shops/shop_page/'.$a);
+				// redirect('/');
 		  }
 		}
 		}

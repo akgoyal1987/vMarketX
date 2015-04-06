@@ -139,6 +139,7 @@
 	<script src="<?php echo base_url();?>js/bootstrap-hover-dropdown.min.js"></script>
     <script src="<?php echo base_url();?>js/jquery.magnific-popup.min.js"></script>
 	<script src="<?php echo base_url();?>js/custom.js"></script>
+	<script src="<?php echo base_url();?>js/jquery.zoom.js"></script>
 	<script type="text/javascript">
 		$(function (){
 	 		$(".addToCart1").click(function(){
