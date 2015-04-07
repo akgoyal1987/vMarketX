@@ -41,7 +41,7 @@
 
     <!--logo and iconic logo start-->
     <div class="logo">
-        <a href="index.html"><img src="<?php echo base_url();?>images/logo.png" alt=""></a>
+        <a href="<?php echo base_url(); ?>logins/home"><img src="<?php echo base_url();?>images/logo.png" alt=""></a>
     </div>
 
     <div class="logo-icon text-center">

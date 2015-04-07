@@ -34,6 +34,14 @@ class Logins extends CI_Controller {
          	redirect('logins/');
 		}		
 	}
+
+	public function change_pswd()
+	  {
+	  	$user_name = $this->session->userdata('username');
+	  	$pswd = md5($_POST['new_pswd']);
+	  	$this->load->model('admin');
+		return $this->admin->change_pswd($pswd,$user_name);
+	  }
 	
 	function validate_credentials(){
 		$this->load->model('admin');

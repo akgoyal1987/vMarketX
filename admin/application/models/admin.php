@@ -19,6 +19,17 @@ class Admin extends CI_Model {
 			return false;
 	}
 	}
+
+  public function change_pswd($pswd,$user_name)
+     {
+        $data = array(
+               'password' => $pswd
+            );
+
+        $this->db->where('username', $user_name);
+        $this->db->update('admin', $data); 
+     }
+
   public function insert_user(){
       $date = $this->input->post('date');
       $name = $this->input->post('name');

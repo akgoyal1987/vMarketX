@@ -1,4 +1,5 @@
 <div class="header-section">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
     <!--toggle button start-->
     <a class="toggle-btn"><i class="fa fa-bars"></i></a>
@@ -39,18 +40,53 @@
                     </div>
                     <div class="modal-body">
                     
-                        <input type="password" name="email" placeholder="Enter your current password" autocomplete="off" class="form-control placeholder-no-fix">
+                        <!-- <input type="password" name="password" placeholder="Enter your current password" autocomplete="off" class="form-control placeholder-no-fix">
+                        <br> -->
+                        <input type="password" id="new_pswd" name="password" placeholder="Enter your new password" autocomplete="off" class="form-control placeholder-no-fix">
                         <br>
-                        <input type="password" name="email" placeholder="Enter your new password" autocomplete="off" class="form-control placeholder-no-fix">
-                        <br>
-                        <input type="password" name="email" placeholder="Confirm your new password" autocomplete="off" class="form-control placeholder-no-fix">
+                        <input type="password" id="cnf_pswd" name="password" placeholder="Confirm your new password" autocomplete="off" class="form-control placeholder-no-fix">
 
                     </div>
                     <div class="modal-footer">
                         <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                        <button class="btn btn-primary" type="button">Submit</button>
+                        <button class="btn btn-primary" type="button" id="button">Submit</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- modal -->
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $('#button').click(function(){
+                var new_pswd = $('#new_pswd').val();
+                var cnf_pswd = $('#cnf_pswd').val();
+
+                if(new_pswd == "" || cnf_pswd == "")
+                  {
+                    alert("Please Fill All Fields");
+                    return false;
+                  }
+
+                if(new_pswd != cnf_pswd)
+                  {
+                    alert("Password Not Matched");
+                    return false;
+                  }
+                
+                    $.ajax({
+                        url:"<?php echo base_url() ?>index.php/logins/change_pswd",
+                        type:"POST",
+                        data:"new_pswd="+new_pswd,
+                        success: function(response){
+                        alert("Password Changed Successfully");
+                        window.location.reload();
+                        },
+                        error: function(data)
+                         {
+                             alert(data);
+                         } 
+                        });
+            });
+        });
+        </script>

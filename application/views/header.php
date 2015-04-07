@@ -395,37 +395,38 @@
 				</nav>
 			<!-- Main Menu Ends -->
 			</div>
+
 		<!-- Ends -->
 
 		</header>
 
 	<!-- Header Section Ends -->
-	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#search_id').keydown(function (e){
-          if(e.keyCode == 13)
-          {
- 	       var val = $('#search_id').val();
- 	       	if(val == "")
- 	       	{
- 	       		return false;
- 	       	}
- 	       $.ajax({
-            url:"<?php echo base_url() ?>index.php/products/search_bar",
-            type:"POST",
-            data:"val="+val,
-            success: function(response){
-           	  $("#product_search").html(response);
-           	 // window.location.href = "http://localhost/vmarketx/category/categoryGrid/22";
-           	 // alert(response);
-            },
-            error: function(data)
-			{
-				alert(data);
-			} 
-            });
-          }
-      });
+	 <script type="text/javascript">
+	// $(document).ready(function(){
+	// 	$('#search_id').keydown(function (e){
+ //          if(e.keyCode == 13)
+ //          {
+ // 	       var val = $('#search_id').val();
+ // 	       	if(val == "")
+ // 	       	{
+ // 	       		return false;
+ // 	       	}
+ // 	       $.ajax({
+ //            url:"<?php echo base_url() ?>index.php/products/search_bar",
+ //            type:"POST",
+ //            data:"val="+val,
+ //            success: function(response){
+ //            	$("#product_search").html(response);
+ //           	 // window.location.href = "http://localhost/vmarketx/category/categoryGrid/22";
+ //           	 // alert(response);
+ //            },
+ //            error: function(data)
+	// 		{
+	// 			alert(data);
+	// 		} 
+ //            });
+ //          }
+ //      });
    
-	});
-	</script>
+	// });
+	// </script>
