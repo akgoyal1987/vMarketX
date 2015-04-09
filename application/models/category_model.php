@@ -18,4 +18,10 @@ class Category_model extends CI_Model {
         return $query->result();
     }
 
+    public function get_search_data1($val)
+        {
+            $query = $this->db->query(" SELECT * FROM `products` WHERE `product_name` Like '%$val%' ");
+            return $query->result();
+        }
+
 }

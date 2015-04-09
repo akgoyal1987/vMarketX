@@ -148,8 +148,8 @@
 							<div class="row">
 							<div class="form-group col-md-4">
 								<!--<label class="control-label text-uppercase" for="input-quantity">Qty:</label>-->
-							<form method="post" action="<?php echo base_url() . "cart/add_to_cart1/" . $product[0]->p_id; ?>">								
-							<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" required />
+							<!-- <form method="post" action="<?php echo base_url() . "cart/add_to_cart1/" . $product[0]->p_id; ?>">								 -->
+							<input type="text" name="quantity" value="<?php echo $product[0]->min_quantity; ?>" size="2" id="input-quantity" class="form-control" required />
 							<input type="hidden" name="min_quantity" value="<?php echo $product[0]->min_quantity; ?>" size="2" id="min_quantity_val" class="form-control"  />
 							<input type="hidden" name="unit" value="<?php echo $product[0]->unit; ?>" size="2" id="unit_val" class="form-control"  />
 
@@ -167,11 +167,14 @@
 								<button type="button" title="Compare" class="btn btn-compare">
 									<i class="fa fa-bar-chart-o"></i>
 								</button>-->
-									<button type="submit" class="btn btn-cart" id="cart_btn">
+								<input type="hidden" main="<?php echo $product[0]->p_id; ?>" id="hidden_p_id">
+								<input type="hidden" main="<?php echo $product[0]->s_id; ?>" id="hidden_s_id">
+									<button type="submit"  class="btn btn-cart" id="cart_btn">
 									Add to cart
 									<i class="fa fa-shopping-cart"></i> 
-								</button>	
-								</form>								
+								</button>
+
+								<!-- </form>								 -->
 							</div>
 						</div>
 					<!-- Available Options Ends -->
@@ -342,9 +345,24 @@
 			var input_quan = parseInt($('#input-quantity').val());
 			var min_quan = parseInt($('#min_quantity_val').val());
 			var unit = $('#unit_val').val();
+			var main_p_val = $('#hidden_p_id').attr('main');
+			var main_s_val = $('#hidden_s_id').attr('main');
+			// alert(main_p_val + main_s_val);
 			if(input_quan >= min_quan)
 			{
-				return true;
+				$.ajax({
+	            url:"<?php echo base_url() ?>index.php/cart/add_to_cart_qty",
+	            type:"POST",
+	            data:"input_quan="+input_quan+"&main_p_val="+main_p_val+"&main_s_val="+main_s_val,
+	            success: function(response){
+	           	window.location.href="<?php echo base_url(); ?>Shops/shop_page/"+main_s_val;
+	            },
+	            error: function(data)
+				{
+					alert(data);
+				} 
+	            });
+
 			}
 			else
 			{
@@ -363,5 +381,7 @@
 			});
 		    });
 		</script>
+
+
 	<!-- Main Container Ends -->
 	<?php include('footer.php');?>

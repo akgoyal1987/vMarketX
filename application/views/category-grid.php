@@ -82,7 +82,8 @@ ini_set('display_errors', 0);
 									<button type="button" title="Compare" class="btn btn-compare">
 										<i class="fa fa-bar-chart-o"></i>
 									</button>-->
-									<a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id."/".$latest_product->min_quantity; ?>">	<button type="button" class="btn btn-cart">									
+									<!-- <a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id."/".$latest_product->min_quantity; ?>">	<button type="button" class="btn btn-cart">									 -->
+									<a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id."/".$latest_product->min_quantity."/".$latest_product->s_id; ?>">	<button type="button" class="btn btn-cart">
 										Add to cart
 										<i class="fa fa-shopping-cart"></i> 
 									</button>									
@@ -163,7 +164,7 @@ change: function(event, ui) {
 	});
 	});
 </script>
-<script type="text/javascript">
+ <script type="text/javascript">
 	$(document).ready(function(){
 		$('#search_id').keydown(function (e){
           if(e.keyCode == 13)
@@ -173,23 +174,12 @@ change: function(event, ui) {
  	       	{
  	       		return false;
  	       	}
- 	       $.ajax({
-            url:"<?php echo base_url() ?>index.php/products/search_bar",
-            type:"POST",
-            data:"val="+val,
-            success: function(response){
-           	 $("#product_box").html(response);
-           	 // alert(response);
-            },
-            error: function(data)
-			{
-				alert(data);
-			} 
-            });
+		 window.location.href="<?php echo base_url(); ?>category/search_data?val="+val;
           }
       });
    
 	});
 	</script>
+
 	<!-- Main Container Ends -->
 <?php include('footer.php');?>

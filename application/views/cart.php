@@ -57,7 +57,7 @@
 							</td>							
 							<td class="text-center">
 								<div class="input-group btn-block">
-									<input type="text" name="quantity" value="<?php echo $items['options']['quantity']; ?>" size="1" class="form-control" />
+									<?php echo $items['options']['quantity']; ?>
 								</div>								
 							</td>
 							<td class="text-center">
@@ -74,6 +74,7 @@
 							</td>
 						</tr>
 						<?php endforeach;?>
+
 						
 					</tfoot>
 				</table>				
@@ -252,27 +253,28 @@
 									Total
 								</h3>
 							</div>
+							<?php
+							$price = number_format((float)$items['price'], 2, '.', '');
+							$val = (float) $price*4/100;
+							$ship_fee = 10.00;
+							?>
 							<div class="panel-body">
 								<dl class="dl-horizontal">
-									<dt>Coupon Discount :</dt>
-									<dd>$-25.00</dd>
 									<dt>Subtotal :</dt>
-									<dd>$300.00</dd>
-									<dt>Payment Fee :</dt>
-									<dd>$10.00</dd>
-									<dt>Shipment Fee :</dt>
-									<dd>$15.00</dd>
+									<dd><?php echo number_format((float)$items['price'], 2, '.', ''); ?> Rs.</dd>
 									<dt>Tax Total :</dt>
-									<dd>$315.00</dd>
+									<dd><?php echo $val; ?>&nbsp;Rs.&nbsp;(4%)</dd>
+									<dt>Shipment Fee :</dt>
+									<dd><?php echo $ship_fee; ?>.00&nbsp;Rs.</dd>
 								</dl>
 								<hr />
 								<dl class="dl-horizontal total">
 									<dt>Total :</dt>
-									<dd>$325.00</dd>
+									<dd><?php echo $price+$val+$ship_fee; ?>&nbsp;Rs.</dd>
 								</dl>
 								<hr />
 								<div class="text-uppercase clearfix">
-									<a href="#" class="btn btn-default pull-left">
+									<a href="<?php echo base_url(); ?>Shops/shop_page/<?php echo $items['shops_id_data'][0]->s_id; ?>" class="btn btn-default pull-left">
 										<span class="hidden-xs">Continue Shopping</span>
 										<span class="visible-xs">Continue</span>
 									</a>

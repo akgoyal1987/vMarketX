@@ -101,9 +101,14 @@ class Products extends CI_Controller {
 		if($this->checkSession()){
    			$this->load->model('product_model');
    			$data['id']=$id;
+   			// $image1 = $_POST['image1'];
+   			// $image2 = $_POST['image2'];
+   			// $image3 = $_POST['image3'];
+   			// $image4 = $_POST['image4'];
+
   		 if($this->product_model->update($p_id)){
             print "<script>
-	        window.location.href = '" . base_url() . "products/myproducts/$id';
+	       
              alert('Product Has Been Successfully Updated');
              </script>";
              }

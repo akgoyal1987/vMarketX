@@ -346,7 +346,8 @@
 											</tbody>
 										</table>
 										<p class="text-right btn-block1">
-											<a href="<?php echo base_url('cart/view_cart'); ?>">
+											<a id="view_cart_btn" href="<?php echo base_url('cart/view_cart'); ?>">
+											<input type="hidden" value="<?php echo $this->cart->total_items();?>" id="hidden_cart">
 												View Cart
 											</a>
 											<a href="#">
@@ -402,31 +403,31 @@
 
 	<!-- Header Section Ends -->
 	 <script type="text/javascript">
-	// $(document).ready(function(){
-	// 	$('#search_id').keydown(function (e){
- //          if(e.keyCode == 13)
- //          {
- // 	       var val = $('#search_id').val();
- // 	       	if(val == "")
- // 	       	{
- // 	       		return false;
- // 	       	}
- // 	       $.ajax({
- //            url:"<?php echo base_url() ?>index.php/products/search_bar",
- //            type:"POST",
- //            data:"val="+val,
- //            success: function(response){
- //            	$("#product_search").html(response);
- //           	 // window.location.href = "http://localhost/vmarketx/category/categoryGrid/22";
- //           	 // alert(response);
- //            },
- //            error: function(data)
-	// 		{
-	// 			alert(data);
-	// 		} 
- //            });
- //          }
- //      });
+	$(document).ready(function(){
+		$('#search_id').keydown(function (e){
+          if(e.keyCode == 13)
+          {
+ 	       var val = $('#search_id').val();
+ 	       	if(val == "")
+ 	       	{
+ 	       		return false;
+ 	       	}
+		 window.location.href="<?php echo base_url(); ?>category/search_data?val="+val;
+          }
+      });
    
-	// });
-	// </script>
+	});
+	</script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#view_cart_btn').click(function(){
+		var  val = parseInt($('#hidden_cart').val());
+		if(val == 0)
+		{
+			alert('Cart Is Empty');
+			return false;
+		}
+		});
+	});
+	</script>

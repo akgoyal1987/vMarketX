@@ -85,11 +85,11 @@ public function selectshop($id)
         return $query->result();
     }
 
-public function getshopdata($a) 
+public function getshopdata($s_id) 
     {
         $this->db->select('*');
         $this->db->from('products');
-        $this->db->where('s_id',$a);
+        $this->db->where('s_id',$s_id);
         $query=$this->db->get();
         return $query->result();
     }

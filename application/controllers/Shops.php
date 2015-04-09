@@ -111,10 +111,12 @@ class Shops extends CI_Controller {
 		}
 	}
 
-	public function shop_page(){
+	public function shop_page($s_id){
 			$this->load->model("getdb");
+			$this->load->model("shops_model");
 			$data['categories']= $this->getdb->getCategory();
 	        $data['subcategories']= $this->getdb->getSubcategory();
+	        $data['products'] = $this->shops_model->getshopdata($s_id);
 			$this->load->view('shop_page',$data);
 		}
 

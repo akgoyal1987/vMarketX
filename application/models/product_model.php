@@ -109,12 +109,6 @@ public function fetch_lcn_data($loc_val,$sc_name_lcn)
     return $query->result();
 }
 
-public function get_search_data($search_val)
-{
-    $query = $this->db->query(" SELECT * FROM `products` WHERE `product_name` Like '%$search_val%' ");
-    return $query->result();
-}
-
 public function max_price_data($sc_name1)
 {
     $this->db->select_max('selling_price');

@@ -13,4 +13,15 @@ class Category extends CI_Controller {
 		$this->load->view('category-grid',$data);
 	}
 
+	public function search_data()
+	  {
+	  	$this->load->model("getdb");
+		$this->load->model("category_model");
+    	$data['categories']= $this->getdb->getCategory();
+    	$data['subcategories']= $this->getdb->getSubcategory();
+    	$val = $_GET['val'];
+    	$data['products'] = $this->category_model->get_search_data1($val);
+    	$this->load->view('search_data',$data);
+	  }
+
 }

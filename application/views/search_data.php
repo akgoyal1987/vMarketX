@@ -1,13 +1,13 @@
+
 <?php include('header.php');?>
 <?php 
 error_reporting(0);
 ini_set('display_errors', 0);
 ?>
-
 <style>
 	#amount{
 		padding-left: 65px !important;
-		background-color: white !important;
+		 background-color: white !important;
 	}
 </style>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
@@ -31,7 +31,7 @@ ini_set('display_errors', 0);
 				<!-- price filter End -->
 
 				<!-- locations filter Starts -->
-				<h3 class="side-heading">Filter By Locations</h3>
+			<h3 class="side-heading">Filter By Locations</h3>
 				<p>
 				<label for="amount1">Locations:</label><br>
 				<?php
@@ -41,7 +41,7 @@ ini_set('display_errors', 0);
 				<?php } ?>
 				</p>
 				<button type="button" class="btn btn-warning" id="lcn_filter_btn">Filter</button>
-				</div>
+				</div> 
 				<!-- locations filter End -->
 
 				</div>
@@ -49,11 +49,11 @@ ini_set('display_errors', 0);
 			<!-- Primary Content Starts -->
 				<div class="col-md-9" id="product_box">
 				<!-- Breadcrumb Starts -->
-				<!-- 	<ol class="breadcrumb">
+					<ol class="breadcrumb">
 						<li><a href="<?php echo base_url();?>">Home</a></li>
 						<li class=""><?php echo $products[0]->product_category ?></li>
 						<li class="active"><?php echo $products[0]->product_subcategory ?></li>
-					</ol> -->
+					</ol>
 				<!-- Breadcrumb Ends -->
 				<div id="all_data"></div>
 				<!-- Product Grid Display Starts -->
@@ -82,8 +82,8 @@ ini_set('display_errors', 0);
 									<button type="button" title="Compare" class="btn btn-compare">
 										<i class="fa fa-bar-chart-o"></i>
 									</button>-->
-									 <!-- <a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id."/".$latest_product->min_quantity; ?>">	<button type="button" class="btn btn-cart">									 -->
-									 <a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id."/".$latest_product->min_quantity."/".$latest_product->s_id; ?>">	<button type="button" class="btn btn-cart">
+									<!-- <a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id."/".$latest_product->min_quantity; ?>">	<button type="button" class="btn btn-cart">									 -->
+									<a href="<?php echo base_url() . "cart/add_to_cart/" . $latest_product->p_id."/".$latest_product->min_quantity."/".$latest_product->s_id; ?>">	<button type="button" class="btn btn-cart">
 										Add to cart
 										<i class="fa fa-shopping-cart"></i> 
 									</button>
@@ -165,5 +165,21 @@ change: function(event, ui) {
 	});
 	});
 </script>
+ <script type="text/javascript">
+	$(document).ready(function(){
+		$('#search_id').keydown(function (e){
+          if(e.keyCode == 13)
+          {
+ 	       var val = $('#search_id').val();
+ 	       	if(val == "")
+ 	       	{
+ 	       		return false;
+ 	       	}
+		 window.location.href="<?php echo base_url(); ?>category/search_data?val="+val;
+          }
+      });
+   
+	});
+	</script>
 	<!-- Main Container Ends -->
 <?php include('footer.php');?>
